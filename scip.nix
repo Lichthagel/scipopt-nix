@@ -39,13 +39,7 @@ pkgs.stdenv.mkDerivation rec {
     (lib.optional (papilo == null) "-DPAPILO=OFF")
     ++ (lib.optional (zimpl == null) "-DZIMPL=OFF");
 
-  buildPhase = ''
-    runHook preBuild
-
-    echo "#define SCIP_GITHASH \"${src.rev}\"" > ../src/scip/githash.c
-
-    cmake --build . ''${enableParallelBuilding:+-j''${NIX_BUILD_CORES}}
-
-    runHook postBuild
+  preConfigure = ''
+    echo "#define SCIP_GITHASH \"${src.rev}\"" > ./src/scip/githash.c
   '';
 }

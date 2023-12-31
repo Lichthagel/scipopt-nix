@@ -31,13 +31,7 @@ pkgs.stdenv.mkDerivation rec {
     "-DSYM=none"
   ];
 
-  buildPhase = ''
-    runHook preBuild
-
-    echo "#define GCG_GITHASH \"${src.rev}\"" > ../src/githash.c
-
-    cmake --build . ''${enableParallelBuilding:+-j''${NIX_BUILD_CORES}}
-
-    runHook postBuild
+  preConfigure = ''
+    echo "#define GCG_GITHASH \"${src.rev}\"" > ./src/githash.c
   '';
 }

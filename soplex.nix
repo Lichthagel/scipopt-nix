@@ -22,15 +22,7 @@ pkgs.stdenv.mkDerivation rec {
   enableParallelBuilding = true;
   doCheck = true;
 
-  buildPhase = ''
-    runHook preBuild
-
-    set -x
-
-    echo "#define SPX_GITHASH \"${src.rev}\"" > ../src/soplex/git_hash.cpp
-
-    cmake --build . ''${enableParallelBuilding:+ -j ''${NIX_BUILD_CORES}}
-
-    runHook postBuild
+  preConfigure = ''
+    echo "#define SPX_GITHASH \"${src.rev}\"" > ./src/soplex/git_hash.cpp
   '';
 }
