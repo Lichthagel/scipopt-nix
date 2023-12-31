@@ -4,6 +4,7 @@
   papilo ? null,
   soplex ? pkgs.callPackage ./soplex.nix {},
   zimpl ? null,
+  withIpopt ? false,
   ...
 }:
 pkgs.stdenv.mkDerivation rec {
@@ -24,11 +25,11 @@ pkgs.stdenv.mkDerivation rec {
     [
       boost
       gmp
-      ipopt
       readline
       soplex
       zlib
     ]
+    ++ (lib.optional withIpopt ipopt)
     ++ (lib.optional (papilo != null) papilo)
     ++ (lib.optional (zimpl != null) zimpl);
 
@@ -36,7 +37,8 @@ pkgs.stdenv.mkDerivation rec {
   doCheck = true;
 
   cmakeFlags =
-    (lib.optional (papilo == null) "-DPAPILO=OFF")
+    (lib.optional (!withIpopt) "-DIPOPT=OFF")
+    ++ (lib.optional (papilo == null) "-DPAPILO=OFF")
     ++ (lib.optional (zimpl == null) "-DZIMPL=OFF");
 
   preConfigure = ''
