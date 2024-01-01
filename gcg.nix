@@ -4,11 +4,12 @@
   ...
 }:
 pkgs.stdenv.mkDerivation rec {
-  name = "gcg";
+  pname = "gcg";
+  version = "3.5.4";
 
   src = builtins.fetchGit {
     url = "git@git.or.rwth-aachen.de:gcg/gcg.git";
-    ref = "v354";
+    ref = "v${builtins.replaceStrings ["."] [""] version}";
     rev = "5f944b20d4ac6eaca27445dacd0e188db3294d60";
   };
 
