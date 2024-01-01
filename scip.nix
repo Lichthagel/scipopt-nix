@@ -8,17 +8,20 @@
   ...
 }:
 pkgs.stdenv.mkDerivation rec {
-  name = "scip";
+  pname = "scip";
+  version = "8.0.4";
 
   src = pkgs.fetchFromGitHub {
     owner = "scipopt";
     repo = "scip";
-    rev = "a8e51afd1e553cd78457a9b7b5e905aed1235bf5";
-    sha256 = "sha256-TC8ypodeaMGv+bVYCKFMXKK1DPHqmAogdYwgBTWCNlQ=";
+    rev = "v${builtins.replaceStrings ["."] [""] version}";
+    sha256 = "sha256-DeFi5UEPmtBukDKufEZdzPzO3x7huL+LHsOTRS4eXug=";
+    leaveDotGit = true; # allows to obtain the git hash, but requires git & a full clone
   };
 
   nativeBuildInputs = with pkgs; [
     cmake
+    git
   ];
 
   buildInputs = with pkgs;
@@ -40,8 +43,4 @@ pkgs.stdenv.mkDerivation rec {
     (lib.optional (!withIpopt) "-DIPOPT=OFF")
     ++ (lib.optional (papilo == null) "-DPAPILO=OFF")
     ++ (lib.optional (zimpl == null) "-DZIMPL=OFF");
-
-  preConfigure = ''
-    echo "#define SCIP_GITHASH \"${src.rev}\"" > ./src/scip/githash.c
-  '';
 }

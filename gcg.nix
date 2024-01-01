@@ -8,8 +8,8 @@ pkgs.stdenv.mkDerivation rec {
 
   src = builtins.fetchGit {
     url = "git@git.or.rwth-aachen.de:gcg/gcg.git";
-    ref = "master";
-    rev = "d80c922b46204bb432e4c09b8291efaa3f67da74";
+    ref = "v354";
+    rev = "5f944b20d4ac6eaca27445dacd0e188db3294d60";
   };
 
   nativeBuildInputs = with pkgs; [
@@ -32,6 +32,6 @@ pkgs.stdenv.mkDerivation rec {
   ];
 
   preConfigure = ''
-    echo "#define GCG_GITHASH \"${src.rev}\"" > ./src/githash.c
+    echo "#define GCG_GITHASH \"${src.shortRev}\"" > ./src/githash.c
   '';
 }

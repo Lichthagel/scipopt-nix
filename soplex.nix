@@ -1,16 +1,19 @@
 {pkgs ? import <nixpkgs> {}, ...}:
 pkgs.stdenv.mkDerivation rec {
-  name = "soplex";
+  pname = "soplex";
+  version = "6.0.4";
 
   src = pkgs.fetchFromGitHub {
     owner = "scipopt";
     repo = "soplex";
-    rev = "950b1658a52bc378ef80ea78a8e37a1fd671990d";
-    sha256 = "sha256-miTgfouMk+TofHO6aJVY6op9JM5k1ekLkkGAfu3QVsM=";
+    rev = "release-${builtins.replaceStrings ["."] [""] version}";
+    sha256 = "sha256-mM4uBMtZjXYtsngRlqaOdOgY/uFDu11zkn+83CwbzWc=";
+    leaveDotGit = true; # allows to obtain the git hash, but requires git & a full clone
   };
 
   nativeBuildInputs = with pkgs; [
     cmake
+    git
   ];
 
   buildInputs = with pkgs; [
@@ -21,8 +24,4 @@ pkgs.stdenv.mkDerivation rec {
 
   enableParallelBuilding = true;
   doCheck = true;
-
-  preConfigure = ''
-    echo "#define SPX_GITHASH \"${src.rev}\"" > ./src/soplex/git_hash.cpp
-  '';
 }
