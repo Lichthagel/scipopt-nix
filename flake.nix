@@ -26,6 +26,13 @@
           };
           soplex = pkgs.callPackage ./soplex.nix {};
 
+          pyscipopt = pkgs.callPackage ./pyscipopt.nix {
+            inherit scip;
+          };
+          pygcgopt = pkgs.callPackage ./pygcgopt.nix {
+            inherit scip gcg pyscipopt;
+          };
+
           default = gcg;
         };
       };
