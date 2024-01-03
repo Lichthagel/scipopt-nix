@@ -1,28 +1,30 @@
 {
-  pkgs,
-  scip ? pkgs.callPackage ./scip.nix {},
+  callPackage,
+  buildPythonPackage,
+  fetchFromGitHub,
+  cython,
+  setuptools,
+  scip ? callPackage ./scip.nix {},
   ...
-}: let
-  ps = pkgs.python3.pkgs;
-in
-  ps.buildPythonPackage rec {
-    pname = "pyscipopt";
-    version = "4.4.0";
-    pyproject = true;
+}:
+buildPythonPackage rec {
+  pname = "pyscipopt";
+  version = "4.4.0";
+  pyproject = true;
 
-    src = pkgs.fetchFromGitHub {
-      owner = "scipopt";
-      repo = "PySCIPOpt";
-      rev = "v${version}";
-      sha256 = "sha256-xI5auBByQIA/eb/u1/8u7A0xyZHeRMw3hA+BGTFWf84=";
-    };
+  src = fetchFromGitHub {
+    owner = "scipopt";
+    repo = "PySCIPOpt";
+    rev = "v${version}";
+    sha256 = "sha256-xI5auBByQIA/eb/u1/8u7A0xyZHeRMw3hA+BGTFWf84=";
+  };
 
-    nativeBuildInputs = with ps; [
-      cython
-      setuptools
-    ];
+  nativeBuildInputs = [
+    cython
+    setuptools
+  ];
 
-    enableParallelBuilding = true;
+  enableParallelBuilding = true;
 
-    SCIPOPTDIR = "${scip}";
-  }
+  SCIPOPTDIR = "${scip}";
+}

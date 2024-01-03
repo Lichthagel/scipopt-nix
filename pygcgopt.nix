@@ -1,33 +1,34 @@
 {
-  pkgs,
-  pyscipopt ? pkgs.callPackage ./pyscipopt.nix {},
-  scip ? pkgs.callPackage ./scip.nix {},
-  gcg ? pkgs.callPackage ./gcg.nix {},
+  callPackage,
+  buildPythonPackage,
+  fetchFromGitHub,
+  cython,
+  pyscipopt ? callPackage ./pyscipopt.nix {},
+  scip ? callPackage ./scip.nix {},
+  gcg ? callPackage ./gcg.nix {},
   ...
-}: let
-  ps = pkgs.python3.pkgs;
-in
-  ps.buildPythonPackage rec {
-    pname = "pygcgopt";
-    version = "0.3.1";
+}:
+buildPythonPackage rec {
+  pname = "pygcgopt";
+  version = "0.3.1";
 
-    src = pkgs.fetchFromGitHub {
-      owner = "scipopt";
-      repo = "pygcgopt";
-      rev = "v${version}";
-      sha256 = "sha256-nVT1Azyp5+nL7pIB04G4mSrm4+3m8iz0wXd7FIXp0ag=";
-    };
+  src = fetchFromGitHub {
+    owner = "scipopt";
+    repo = "pygcgopt";
+    rev = "v${version}";
+    sha256 = "sha256-nVT1Azyp5+nL7pIB04G4mSrm4+3m8iz0wXd7FIXp0ag=";
+  };
 
-    nativeBuildInputs = with ps; [
-      cython
-    ];
+  nativeBuildInputs = [
+    cython
+  ];
 
-    propagatedBuildInputs = [
-      pyscipopt
-    ];
+  propagatedBuildInputs = [
+    pyscipopt
+  ];
 
-    enableParallelBuilding = true;
+  enableParallelBuilding = true;
 
-    SCIPOPTDIR = "${scip}";
-    GCGOPTDIR = "${gcg}";
-  }
+  SCIPOPTDIR = "${scip}";
+  GCGOPTDIR = "${gcg}";
+}

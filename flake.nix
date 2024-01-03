@@ -28,10 +28,10 @@
           };
           soplex = pkgs.callPackage ./soplex.nix {};
 
-          pyscipopt = pkgs.callPackage ./pyscipopt.nix {
+          pyscipopt = pkgs.python3Packages.callPackage ./pyscipopt.nix {
             inherit scip;
           };
-          pygcgopt = pkgs.callPackage ./pygcgopt.nix {
+          pygcgopt = pkgs.python3Packages.callPackage ./pygcgopt.nix {
             inherit scip gcg pyscipopt;
           };
 
