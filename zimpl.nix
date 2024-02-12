@@ -1,24 +1,23 @@
-{pkgs ? import <nixpkgs> {}, ...}: let
-  suite-src = pkgs.fetchzip {
-    url = "https://scipopt.org/download/release/scipoptsuite-8.1.0.tgz";
-    hash = "sha256-UjEYFcKsfBbBN25xxWFRIdZzenUk2Ooev8lz2eQtzTk=";
-  };
-in
-  pkgs.stdenv.mkDerivation {
-    pname = "zimpl";
-    version = "3.5.3";
+{
+  pkgs ? import <nixpkgs> {},
+  scipoptsuite-src ? pkgs.callPackage ./scipoptsuite-src.nix {},
+  ...
+}:
+pkgs.stdenv.mkDerivation {
+  pname = "zimpl";
+  version = "3.5.3";
 
-    # Not publicly available apart from the SCIP Optimization Suite
-    src = "${suite-src}/zimpl";
+  # Not publicly available apart from the SCIP Optimization Suite
+  src = assert scipoptsuite-src.version == "8.1.0"; "${scipoptsuite-src}/zimpl"; # scipoptsuite 8.1.0 ships zimpl 3.5.3
 
-    nativeBuildInputs = with pkgs; [
-      cmake
-      bison
-      flex
-    ];
+  nativeBuildInputs = with pkgs; [
+    cmake
+    bison
+    flex
+  ];
 
-    buildInputs = with pkgs; [
-      gmp
-      zlib
-    ];
-  }
+  buildInputs = with pkgs; [
+    gmp
+    zlib
+  ];
+}
