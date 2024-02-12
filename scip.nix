@@ -1,7 +1,7 @@
 {
   lib ? import <nixpkgs/lib> {},
   pkgs ? import <nixpkgs> {},
-  papilo ? null,
+  papilo ? pkgs.callPackage ./papilo.nix {},
   soplex ? pkgs.callPackage ./soplex.nix {},
   zimpl ? null,
   withIpopt ? false,
