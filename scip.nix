@@ -9,13 +9,13 @@
 }:
 pkgs.stdenv.mkDerivation rec {
   pname = "scip";
-  version = "8.0.4";
+  version = "8.1.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "scipopt";
     repo = "scip";
     rev = "v${builtins.replaceStrings ["."] [""] version}";
-    sha256 = "sha256-DeFi5UEPmtBukDKufEZdzPzO3x7huL+LHsOTRS4eXug=";
+    sha256 = "sha256-cunjmSpDM7jyEGiFiLM8kgXDR3cZGieRA9/wBtZWAwk=";
     leaveDotGit = true; # allows to obtain the git hash, but requires git & a full clone
   };
 
