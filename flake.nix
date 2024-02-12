@@ -25,6 +25,7 @@
           };
           scip = pkgs.callPackage ./scip.nix {
             inherit soplex papilo zimpl;
+            ipopt = null; # explicitly disable ipopt, since libhsl is not found...
           };
           soplex = pkgs.callPackage ./soplex.nix {};
           papilo = pkgs.callPackage ./papilo.nix {
