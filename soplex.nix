@@ -7,7 +7,7 @@ pkgs.stdenv.mkDerivation rec {
     owner = "scipopt";
     repo = "soplex";
     rev = "release-${builtins.replaceStrings ["."] [""] version}";
-    sha256 = "sha256-mM4uBMtZjXYtsngRlqaOdOgY/uFDu11zkn+83CwbzWc=";
+    sha256 = "sha256-ZrQMecHCA+amP4T7k/AJNMRCfaFPGhQfa5K4QLVX+Cc=";
     leaveDotGit = true; # allows to obtain the git hash, but requires git & a full clone
   };
 
