@@ -24,12 +24,13 @@
             inherit scip;
           };
           scip = pkgs.callPackage ./scip.nix {
-            inherit soplex papilo;
+            inherit soplex papilo zimpl;
           };
           soplex = pkgs.callPackage ./soplex.nix {};
           papilo = pkgs.callPackage ./papilo.nix {
             inherit soplex;
           };
+          zimpl = pkgs.callPackage ./zimpl.nix {};
 
           pyscipopt = pkgs.python3Packages.callPackage ./pyscipopt.nix {
             inherit scip;

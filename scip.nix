@@ -3,7 +3,7 @@
   pkgs ? import <nixpkgs> {},
   papilo ? pkgs.callPackage ./papilo.nix {},
   soplex ? pkgs.callPackage ./soplex.nix {},
-  zimpl ? null,
+  zimpl ? pkgs.callPackage ./zimpl.nix {},
   withIpopt ? false,
   ...
 }:
