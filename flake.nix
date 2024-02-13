@@ -1,5 +1,5 @@
 {
-  description = "SCIP Optimization Suite & GCG for Nix";
+  description = "SCIP Optimization Suite";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
@@ -40,11 +40,8 @@
             inherit scip gcg pyscipopt;
           };
 
-          default = gcg;
+          default = scip;
         };
-      };
-
-      flake = {
       };
     };
 }
