@@ -19,17 +19,16 @@ pkgs.stdenv.mkDerivation {
       cliquer
       gmp
       gsl
+      (bliss.overrideAttrs (oldAttrs: {
+        installPhase =
+          oldAttrs.installPhase
+          + ''
+            mv $out/lib/libbliss.a $out/lib/liblibbliss.a
+          '';
+      }))
     ])
     ++ [scip];
 
   enableParallelBuilding = true;
   doCheck = true;
-
-  cmakeFlags = [
-    "-DSYM=none"
-  ];
-
-  # preConfigure = ''
-  #   echo "#define GCG_GITHASH \"${src.shortRev}\"" > ./src/githash.c
-  # '';
 }
