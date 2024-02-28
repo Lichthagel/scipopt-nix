@@ -1,14 +1,18 @@
 {
   pkgs ? import <nixpkgs> {},
+  lib ? import <nixpkgs/lib> {},
   scip ? pkgs.callPackage ./scip.nix {},
   scipoptsuite-src ? pkgs.callPackage ./scipoptsuite-src.nix {},
   ...
 }:
 pkgs.stdenv.mkDerivation {
   pname = "gcg";
-  version = "3.5.5";
+  version = "3.6.0";
 
-  src = assert scipoptsuite-src.version == "8.1.0"; "${scipoptsuite-src}/gcg"; # scipoptsuite 8.1.0 ships gcg 3.5.5
+  src = assert (
+    lib.strings.versionAtLeast scipoptsuite-src.version "9.0.0"
+    && lib.strings.versionOlder scipoptsuite-src.version "9.0.1"
+  ); "${scipoptsuite-src}/gcg"; # check for scipopt suite version that ships correct zimpl version
 
   nativeBuildInputs = with pkgs; [
     cmake

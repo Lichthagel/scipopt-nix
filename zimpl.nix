@@ -1,5 +1,6 @@
 {
   pkgs ? import <nixpkgs> {},
+  lib ? import <nixpkgs/lib> {},
   scipoptsuite-src ? pkgs.callPackage ./scipoptsuite-src.nix {},
   ...
 }:
@@ -8,7 +9,10 @@ pkgs.stdenv.mkDerivation {
   version = "3.5.3";
 
   # Not publicly available apart from the SCIP Optimization Suite
-  src = assert scipoptsuite-src.version == "8.1.0"; "${scipoptsuite-src}/zimpl"; # scipoptsuite 8.1.0 ships zimpl 3.5.3
+  src = assert (
+    lib.strings.versionAtLeast scipoptsuite-src.version "8.0.2"
+    && lib.strings.versionOlder scipoptsuite-src.version "9.0.1"
+  ); "${scipoptsuite-src}/zimpl"; # check for scipopt suite version that ships correct zimpl version
 
   nativeBuildInputs = with pkgs; [
     cmake

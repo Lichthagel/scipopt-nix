@@ -5,13 +5,13 @@
 }:
 pkgs.stdenv.mkDerivation rec {
   pname = "papilo";
-  version = "2.1.4";
+  version = "2.2.0";
 
   src = pkgs.fetchFromGitHub {
     owner = "scipopt";
     repo = "papilo";
     rev = "v${version}";
-    sha256 = "sha256-ALQYCdE4AN/Jpo8TP1UFbJi70Zxm+skcc3oTjMSZ9+Q=";
+    sha256 = "sha256-X6xr7nhTj5q8QJHn4AtUZSTyVusUDv5X4Dgv0bLf0kE=";
   };
 
   nativeBuildInputs = with pkgs; [
