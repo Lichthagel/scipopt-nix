@@ -5,6 +5,7 @@
   soplex ? pkgs.callPackage ./soplex.nix {},
   zimpl ? pkgs.callPackage ./zimpl.nix {},
   ipopt ? null,
+  debugFiles ? [], # add `#define SCIP_DEBUG` to these files (e.g. ["src/scip/cons_linear.c"])
   ...
 }: let
   system-names = {
@@ -66,6 +67,17 @@ in
       ++ (lib.optional (ipopt != null) ipopt)
       ++ (lib.optional (papilo != null) papilo)
       ++ (lib.optional (zimpl != null) zimpl);
+
+    patchPhase = ''
+      runHook prePatch
+
+      # Add #define SCIP_DEBUG to debug files
+      for file in ${builtins.concatStringsSep " " debugFiles}; do
+        sed -i '1s/^/#define SCIP_DEBUG\n/' $file
+      done
+
+      runHook postPatch
+    '';
 
     enableParallelBuilding = true;
     doCheck = true;
