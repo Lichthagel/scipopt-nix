@@ -3,6 +3,7 @@
   lib ? import <nixpkgs/lib> {},
   scip ? pkgs.callPackage ./scip.nix {},
   scipoptsuite-src ? pkgs.callPackage ./scipoptsuite-src.nix {},
+  debugFiles ? [], # add `#define SCIP_DEBUG` to these files (e.g. ["src/gcg/cons_decomp.cpp"])
   ...
 }:
 pkgs.stdenv.mkDerivation {
@@ -32,6 +33,17 @@ pkgs.stdenv.mkDerivation {
       }))
     ])
     ++ [scip];
+
+  patchPhase = ''
+    runHook prePatch
+
+    # Add #define SCIP_DEBUG to debug files
+    for file in ${builtins.concatStringsSep " " debugFiles}; do
+      sed -i '1s/^/#define SCIP_DEBUG\n/' $file
+    done
+
+    runHook postPatch
+  '';
 
   enableParallelBuilding = true;
   doCheck = true;
