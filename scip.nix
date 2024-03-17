@@ -68,15 +68,11 @@ in
       ++ (lib.optional (papilo != null) papilo)
       ++ (lib.optional (zimpl != null) zimpl);
 
-    patchPhase = ''
-      runHook prePatch
-
+    postPatch = ''
       # Add #define SCIP_DEBUG to debug files
       for file in ${builtins.concatStringsSep " " debugFiles}; do
         sed -i '1s/^/#define SCIP_DEBUG\n/' $file
       done
-
-      runHook postPatch
     '';
 
     enableParallelBuilding = true;
