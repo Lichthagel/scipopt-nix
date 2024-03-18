@@ -45,7 +45,7 @@ in
       owner = "scipopt";
       repo = "scip";
       rev = "v${builtins.replaceStrings ["."] [""] version}";
-      sha256 = "sha256-yxKi81vT+i9ExKLVA6M3G5aYJIxBvJRr0tfHE/0GT18=";
+      sha256 = "sha256-mcCExe5lHmW2nTKbSXXifA9LIclru9LPlFG5Aj8K3+M=";
       leaveDotGit = true; # allows to obtain the git hash, but requires git & a full clone
     };
 
