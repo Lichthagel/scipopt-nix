@@ -4,7 +4,7 @@
   fetchFromGitHub,
   cython,
   setuptools,
-  scip ? callPackage ./scip.nix {},
+  scip ? callPackage ./scip.nix { },
   ...
 }:
 buildPythonPackage rec {

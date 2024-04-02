@@ -1,6 +1,6 @@
 {
-  pkgs ? import <nixpkgs> {},
-  soplex ? pkgs.callPackage ./soplex.nix {},
+  pkgs ? import <nixpkgs> { },
+  soplex ? pkgs.callPackage ./soplex.nix { },
   ...
 }:
 pkgs.stdenv.mkDerivation rec {
@@ -14,9 +14,7 @@ pkgs.stdenv.mkDerivation rec {
     sha256 = "sha256-X6xr7nhTj5q8QJHn4AtUZSTyVusUDv5X4Dgv0bLf0kE=";
   };
 
-  nativeBuildInputs = with pkgs; [
-    cmake
-  ];
+  nativeBuildInputs = with pkgs; [ cmake ];
 
   buildInputs = with pkgs; [
     boost

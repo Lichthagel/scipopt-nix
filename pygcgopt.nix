@@ -3,9 +3,9 @@
   buildPythonPackage,
   fetchFromGitHub,
   cython,
-  pyscipopt ? callPackage ./pyscipopt.nix {},
-  scip ? callPackage ./scip.nix {},
-  gcg ? callPackage ./gcg.nix {},
+  pyscipopt ? callPackage ./pyscipopt.nix { },
+  scip ? callPackage ./scip.nix { },
+  gcg ? callPackage ./gcg.nix { },
   ...
 }:
 buildPythonPackage rec {
@@ -19,13 +19,9 @@ buildPythonPackage rec {
     sha256 = "sha256-nVT1Azyp5+nL7pIB04G4mSrm4+3m8iz0wXd7FIXp0ag=";
   };
 
-  nativeBuildInputs = [
-    cython
-  ];
+  nativeBuildInputs = [ cython ];
 
-  propagatedBuildInputs = [
-    pyscipopt
-  ];
+  propagatedBuildInputs = [ pyscipopt ];
 
   enableParallelBuilding = true;
 

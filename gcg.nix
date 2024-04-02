@@ -1,7 +1,7 @@
 {
-  pkgs ? import <nixpkgs> {},
-  scip ? pkgs.callPackage ./scip.nix {},
-  debugFiles ? [], # add `#define SCIP_DEBUG` to these files (e.g. ["src/gcg/cons_decomp.cpp"])
+  pkgs ? import <nixpkgs> { },
+  scip ? pkgs.callPackage ./scip.nix { },
+  debugFiles ? [ ], # add `#define SCIP_DEBUG` to these files (e.g. ["src/gcg/cons_decomp.cpp"])
   ...
 }:
 pkgs.stdenv.mkDerivation rec {
@@ -11,7 +11,7 @@ pkgs.stdenv.mkDerivation rec {
   src = pkgs.fetchFromGitHub {
     owner = "scipopt";
     repo = "gcg";
-    rev = "v${builtins.replaceStrings ["."] [""] version}";
+    rev = "v${builtins.replaceStrings [ "." ] [ "" ] version}";
     sha256 = "sha256-MRgsmP9LuTpS/FEPBNJSrIbYlUGh8EOEcbbl0MVEiRA=";
     leaveDotGit = true;
   };
@@ -34,7 +34,7 @@ pkgs.stdenv.mkDerivation rec {
           '';
       }))
     ])
-    ++ [scip];
+    ++ [ scip ];
 
   postPatch = ''
     # Add #define SCIP_DEBUG to debug files
