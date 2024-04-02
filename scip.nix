@@ -8,36 +8,6 @@
   debugFiles ? [ ], # add `#define SCIP_DEBUG` to these files (e.g. ["src/scip/cons_linear.c"])
   ...
 }:
-let
-  system-names = {
-    x86_64-linux = "Linux";
-    aarch64-linux = "Linux";
-    x86_64-darwin = "Darwin";
-    aarch64-darwin = "Darwin";
-  };
-  tbb-cmake = pkgs.stdenv.mkDerivation {
-    name = "tbb-cmake";
-
-    dontUnpack = true;
-
-    installPhase = ''
-      mkdir -p $out
-      cp -r ${pkgs.tbb_2020_3.dev}/include $out
-      cp -r ${pkgs.tbb_2020_3.dev}/nix-support $out
-
-      mkdir -p $out/lib
-      cp -r ${pkgs.tbb_2020_3}/lib/* $out/lib
-      cp -r ${pkgs.tbb_2020_3.dev}/lib/* $out/lib
-
-      mkdir -p $out/lib/cmake/TBB
-      ${pkgs.cmake}/bin/cmake \
-              -DINSTALL_DIR=$out/lib/cmake/TBB \
-              -DSYSTEM_NAME=${system-names.${pkgs.stdenv.hostPlatform.system}} \
-              -DTBB_VERSION_FILE=${pkgs.tbb_2020_3.src}/include/tbb/tbb_stddef.h \
-              -P ${pkgs.tbb_2020_3.src}/cmake/tbb_config_installer.cmake
-    '';
-  };
-in
 pkgs.stdenv.mkDerivation rec {
   pname = "scip";
   version = "9.0.0";
@@ -62,7 +32,37 @@ pkgs.stdenv.mkDerivation rec {
       gmp
       readline
       soplex
-      tbb-cmake
+      (pkgs.stdenv.mkDerivation {
+        name = "tbb-cmake"; # package tbb with cmake support
+
+        dontUnpack = true;
+
+        installPhase =
+          let
+            system-names = {
+              x86_64-linux = "Linux";
+              aarch64-linux = "Linux";
+              x86_64-darwin = "Darwin";
+              aarch64-darwin = "Darwin";
+            };
+          in
+          ''
+            mkdir -p $out
+            cp -r ${pkgs.tbb_2020_3.dev}/include $out
+            cp -r ${pkgs.tbb_2020_3.dev}/nix-support $out
+
+            mkdir -p $out/lib
+            cp -r ${pkgs.tbb_2020_3}/lib/* $out/lib
+            cp -r ${pkgs.tbb_2020_3.dev}/lib/* $out/lib
+
+            mkdir -p $out/lib/cmake/TBB
+            ${pkgs.cmake}/bin/cmake \
+                    -DINSTALL_DIR=$out/lib/cmake/TBB \
+                    -DSYSTEM_NAME=${system-names.${pkgs.stdenv.hostPlatform.system}} \
+                    -DTBB_VERSION_FILE=${pkgs.tbb_2020_3.src}/include/tbb/tbb_stddef.h \
+                    -P ${pkgs.tbb_2020_3.src}/cmake/tbb_config_installer.cmake
+          '';
+      })
       zlib
     ])
     ++ (lib.optional (ipopt != null) ipopt)
