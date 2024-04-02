@@ -1,22 +1,24 @@
 {
   pkgs ? import <nixpkgs> {},
-  lib ? import <nixpkgs/lib> {},
   scip ? pkgs.callPackage ./scip.nix {},
-  scipoptsuite-src ? pkgs.callPackage ./scipoptsuite-src.nix {},
   debugFiles ? [], # add `#define SCIP_DEBUG` to these files (e.g. ["src/gcg/cons_decomp.cpp"])
   ...
 }:
-pkgs.stdenv.mkDerivation {
+pkgs.stdenv.mkDerivation rec {
   pname = "gcg";
   version = "3.6.0";
 
-  src = assert (
-    lib.strings.versionAtLeast scipoptsuite-src.version "9.0.0"
-    && lib.strings.versionOlder scipoptsuite-src.version "9.0.1"
-  ); "${scipoptsuite-src}/gcg"; # check for scipopt suite version that ships correct zimpl version
+  src = pkgs.fetchFromGitHub {
+    owner = "scipopt";
+    repo = "gcg";
+    rev = "v${builtins.replaceStrings ["."] [""] version}";
+    sha256 = "sha256-MRgsmP9LuTpS/FEPBNJSrIbYlUGh8EOEcbbl0MVEiRA=";
+    leaveDotGit = true;
+  };
 
   nativeBuildInputs = with pkgs; [
     cmake
+    git # to obtain git commit hash
   ];
 
   buildInputs =
