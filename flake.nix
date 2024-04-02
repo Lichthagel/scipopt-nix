@@ -39,6 +39,8 @@
             pyscipopt = pkgs.python3Packages.callPackage ./pyscipopt.nix { inherit scip; };
             pygcgopt = pkgs.python3Packages.callPackage ./pygcgopt.nix { inherit scip gcg pyscipopt; };
 
+            scippp = pkgs.callPackage ./scippp.nix { inherit scip; };
+
             default = scip;
           };
         };
