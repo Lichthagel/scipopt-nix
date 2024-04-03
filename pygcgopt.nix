@@ -1,30 +1,42 @@
 {
   callPackage,
   buildPythonPackage,
+  fetchgit,
+  fetchurl,
   fetchFromGitHub,
+  dockerTools,
   cython,
-  pyscipopt ? callPackage ./pyscipopt.nix { },
-  scip ? callPackage ./scip.nix { },
-  gcg ? callPackage ./gcg.nix { },
+  pyscipopt ? callPackage ./pyscipopt.nix {},
+  scip ? callPackage ./scip.nix {},
+  gcg ? callPackage ./gcg.nix {},
   ...
-}:
-buildPythonPackage rec {
-  pname = "pygcgopt";
-  version = "0.3.1";
+}: let
+  pygcgopt-src =
+    (import ./_sources/generated.nix {
+      inherit
+        fetchgit
+        fetchurl
+        fetchFromGitHub
+        dockerTools
+        ;
+    })
+    .pygcgopt;
+in
+  buildPythonPackage {
+    inherit (pygcgopt-src) pname version src;
 
-  src = fetchFromGitHub {
-    owner = "scipopt";
-    repo = "pygcgopt";
-    rev = "v${version}";
-    sha256 = "sha256-nVT1Azyp5+nL7pIB04G4mSrm4+3m8iz0wXd7FIXp0ag=";
-  };
+    # version =
+    #   let
+    #     matches = builtins.match "v(.+)" pygcgopt-src.version;
+    #   in
+    #   builtins.head matches;
 
-  nativeBuildInputs = [ cython ];
+    nativeBuildInputs = [cython];
 
-  propagatedBuildInputs = [ pyscipopt ];
+    propagatedBuildInputs = [pyscipopt];
 
-  enableParallelBuilding = true;
+    enableParallelBuilding = true;
 
-  SCIPOPTDIR = "${scip}";
-  GCGOPTDIR = "${gcg}";
-}
+    SCIPOPTDIR = "${scip}";
+    GCGOPTDIR = "${gcg}";
+  }

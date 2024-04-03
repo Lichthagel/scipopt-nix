@@ -1,48 +1,56 @@
 {
-  pkgs ? import <nixpkgs> { },
-  scip ? pkgs.callPackage ./scip.nix { },
-  debugFiles ? [ ], # add `#define SCIP_DEBUG` to these files (e.g. ["src/gcg/cons_decomp.cpp"])
+  pkgs ? import <nixpkgs> {},
+  scip ? pkgs.callPackage ./scip.nix {},
+  debugFiles ? [], # add `#define SCIP_DEBUG` to these files (e.g. ["src/gcg/cons_decomp.cpp"])
   ...
-}:
-pkgs.stdenv.mkDerivation rec {
-  pname = "gcg";
-  version = "3.6.0";
+}: let
+  gcg-src =
+    (import ./_sources/generated.nix {
+      inherit
+        (pkgs)
+        fetchgit
+        fetchurl
+        fetchFromGitHub
+        dockerTools
+        ;
+    })
+    .gcg;
+in
+  pkgs.stdenv.mkDerivation {
+    inherit (gcg-src) pname src;
 
-  src = pkgs.fetchFromGitHub {
-    owner = "scipopt";
-    repo = "gcg";
-    rev = "v${builtins.replaceStrings [ "." ] [ "" ] version}";
-    sha256 = "sha256-MRgsmP9LuTpS/FEPBNJSrIbYlUGh8EOEcbbl0MVEiRA=";
-    leaveDotGit = true;
-  };
+    version = let
+      matches = builtins.match "v([0-9]+)([0-9])([0-9])" gcg-src.version;
+    in
+      builtins.concatStringsSep "." matches;
 
-  nativeBuildInputs = with pkgs; [
-    cmake
-    git # to obtain git commit hash
-  ];
+    nativeBuildInputs = with pkgs; [
+      cmake
+      git # to obtain git commit hash
+    ];
 
-  buildInputs =
-    (with pkgs; [
-      cliquer
-      gmp
-      gsl
-      (bliss.overrideAttrs (oldAttrs: {
-        installPhase =
-          oldAttrs.installPhase
-          + ''
-            mv $out/lib/libbliss.a $out/lib/liblibbliss.a
-          '';
-      }))
-    ])
-    ++ [ scip ];
+    buildInputs =
+      (with pkgs; [
+        cliquer
+        gmp
+        gsl
+        (bliss.overrideAttrs (oldAttrs: {
+          installPhase =
+            oldAttrs.installPhase
+            + ''
+              mv $out/lib/libbliss.a $out/lib/liblibbliss.a
+            '';
+        }))
+      ])
+      ++ [scip];
 
-  postPatch = ''
-    # Add #define SCIP_DEBUG to debug files
-    for file in ${builtins.concatStringsSep " " debugFiles}; do
-      sed -i '1s/^/#define SCIP_DEBUG\n/' $file
-    done
-  '';
+    postPatch = ''
+      # Add #define SCIP_DEBUG to debug files
+      for file in ${builtins.concatStringsSep " " debugFiles}; do
+        sed -i '1s/^/#define SCIP_DEBUG\n/' $file
+      done
+    '';
 
-  enableParallelBuilding = true;
-  doCheck = true;
-}
+    enableParallelBuilding = true;
+    doCheck = true;
+  }

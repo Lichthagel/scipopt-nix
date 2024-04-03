@@ -1,28 +1,35 @@
 {
   callPackage,
   buildPythonPackage,
+  fetchgit,
+  fetchurl,
   fetchFromGitHub,
+  dockerTools,
   cython,
   setuptools,
-  soplex ? callPackage ./soplex.nix { },
+  soplex ? callPackage ./soplex.nix {},
   ...
-}:
-buildPythonPackage {
-  name = "pysoplex";
+}: let
+  pysoplex-src =
+    (import ./_sources/generated.nix {
+      inherit
+        fetchgit
+        fetchurl
+        fetchFromGitHub
+        dockerTools
+        ;
+    })
+    .pysoplex;
+in
+  buildPythonPackage {
+    inherit (pysoplex-src) pname version src;
 
-  src = fetchFromGitHub {
-    owner = "scipopt";
-    repo = "PySoPlex";
-    rev = "0def0a370ea08d1f1f34b0e5a2e03f7e5881ac9c";
-    sha256 = "sha256-8/bndwQ0aUSMl3XTZctfW3SH85IIrlCln6+9cQGuU9Q=";
-  };
+    nativeBuildInputs = [
+      cython
+      setuptools
+    ];
 
-  nativeBuildInputs = [
-    cython
-    setuptools
-  ];
+    enableParallelBuilding = true;
 
-  enableParallelBuilding = true;
-
-  SOPLEX_DIR = "${soplex}";
-}
+    SOPLEX_DIR = "${soplex}";
+  }

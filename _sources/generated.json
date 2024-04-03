@@ -1,0 +1,162 @@
+{
+    "gcg": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "gcg",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": true,
+            "name": null,
+            "owner": "scipopt",
+            "repo": "gcg",
+            "rev": "v360",
+            "sha256": "sha256-MRgsmP9LuTpS/FEPBNJSrIbYlUGh8EOEcbbl0MVEiRA=",
+            "type": "github"
+        },
+        "version": "v360"
+    },
+    "papilo": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "papilo",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "scipopt",
+            "repo": "papilo",
+            "rev": "v2.2.0",
+            "sha256": "sha256-X6xr7nhTj5q8QJHn4AtUZSTyVusUDv5X4Dgv0bLf0kE=",
+            "type": "github"
+        },
+        "version": "v2.2.0"
+    },
+    "pygcgopt": {
+        "cargoLocks": null,
+        "date": "2024-03-08",
+        "extract": null,
+        "name": "pygcgopt",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "scipopt",
+            "repo": "PyGCGOpt",
+            "rev": "6e2e51aabd11d3cb4ebdf79992c3618758801016",
+            "sha256": "sha256-1nf5ctEBDR9ZFEOPcHFa+9qnytWkiydZaP8RZhG2XXY=",
+            "type": "github"
+        },
+        "version": "6e2e51aabd11d3cb4ebdf79992c3618758801016"
+    },
+    "pyscipopt": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "pyscipopt",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "scipopt",
+            "repo": "PySCIPOpt",
+            "rev": "v5.0.0",
+            "sha256": "sha256-LRw9IYAU4n+zhC0+srY4a12JjZx9o4ws7w5i2qdSu54=",
+            "type": "github"
+        },
+        "version": "v5.0.0"
+    },
+    "pysoplex": {
+        "cargoLocks": null,
+        "date": "2024-02-27",
+        "extract": null,
+        "name": "pysoplex",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "scipopt",
+            "repo": "PySoPlex",
+            "rev": "0def0a370ea08d1f1f34b0e5a2e03f7e5881ac9c",
+            "sha256": "sha256-8/bndwQ0aUSMl3XTZctfW3SH85IIrlCln6+9cQGuU9Q=",
+            "type": "github"
+        },
+        "version": "0def0a370ea08d1f1f34b0e5a2e03f7e5881ac9c"
+    },
+    "scip": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "scip",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": true,
+            "name": null,
+            "owner": "scipopt",
+            "repo": "scip",
+            "rev": "v900",
+            "sha256": "sha256-mcCExe5lHmW2nTKbSXXifA9LIclru9LPlFG5Aj8K3+M=",
+            "type": "github"
+        },
+        "version": "v900"
+    },
+    "scippp": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "scippp",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "scipopt",
+            "repo": "SCIPpp",
+            "rev": "1.1.0",
+            "sha256": "sha256-3BsFUpPYMxVhqpaBfqtt/TJnqeRM94BLsMUdoA2Vk5E=",
+            "type": "github"
+        },
+        "version": "1.1.0"
+    },
+    "soplex": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "soplex",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": true,
+            "name": null,
+            "owner": "scipopt",
+            "repo": "soplex",
+            "rev": "release-700",
+            "sha256": "sha256-gSpq6YFO/4e1pkJ+ZV8v3oYk56OUEGNd+Gqn2/H8bAA=",
+            "type": "github"
+        },
+        "version": "release-700"
+    }
+}

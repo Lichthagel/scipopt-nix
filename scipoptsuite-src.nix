@@ -1,7 +1,4 @@
-{
-  pkgs ? import <nixpkgs> { },
-  ...
-}:
+{pkgs ? import <nixpkgs> {}, ...}:
 pkgs.fetchzip rec {
   pname = "scipoptsuite-src";
   version = "9.0.0";

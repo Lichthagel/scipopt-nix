@@ -1,25 +1,29 @@
 {
-  pkgs ? import <nixpkgs> { },
-  scip ? pkgs.callPackage ./scip.nix { },
-}:
-pkgs.stdenv.mkDerivation rec {
-  pname = "scippp";
-  version = "1.1.0";
+  pkgs ? import <nixpkgs> {},
+  scip ? pkgs.callPackage ./scip.nix {},
+}: let
+  scippp-src =
+    (import ./_sources/generated.nix {
+      inherit
+        (pkgs)
+        fetchgit
+        fetchurl
+        fetchFromGitHub
+        dockerTools
+        ;
+    })
+    .scippp;
+in
+  pkgs.stdenv.mkDerivation {
+    inherit (scippp-src) pname version src;
 
-  src = pkgs.fetchFromGitHub {
-    owner = "scipopt";
-    repo = "SCIPpp";
-    rev = "${version}";
-    sha256 = "sha256-3BsFUpPYMxVhqpaBfqtt/TJnqeRM94BLsMUdoA2Vk5E=";
-  };
+    nativeBuildInputs = with pkgs; [cmake];
 
-  nativeBuildInputs = with pkgs; [ cmake ];
+    buildInputs = with pkgs; [
+      boost
+      scip
+    ];
 
-  buildInputs = with pkgs; [
-    boost
-    scip
-  ];
-
-  enableParallelBuilding = true;
-  doCheck = true;
-}
+    enableParallelBuilding = true;
+    doCheck = true;
+  }
