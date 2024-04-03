@@ -9,7 +9,7 @@ update:
   nvfetcher
 
 format:
-  alejandra ./*.nix
+  alejandra ./*.nix ./templates/*/*.nix
 
 check:
   statix check .

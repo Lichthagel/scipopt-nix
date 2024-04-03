@@ -9,6 +9,28 @@
 
   outputs = inputs @ {flake-parts, ...}:
     flake-parts.lib.mkFlake {inherit inputs;} {
+      flake = {
+        scip = {
+          path = ./templates/scip;
+          description = "An optimization project using SCIP in C (or C++)";
+        };
+
+        gcg = {
+          path = ./templates/gcg;
+          description = "An optimization project using GCG in C (or C++)";
+        };
+
+        pyscipopt = {
+          path = ./templates/pyscipopt;
+          description = "An optimization project using PySCIPOpt in Python";
+        };
+
+        pygcgopt = {
+          path = ./templates/pygcgopt;
+          description = "An optimization project using PyGCGOpt in Python";
+        };
+      };
+
       systems = [
         "x86_64-linux"
         "aarch64-linux"
