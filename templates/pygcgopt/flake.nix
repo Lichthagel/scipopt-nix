@@ -8,36 +8,39 @@
       url = "git+ssh://git@git.or.rwth-aachen.de/jgatzweiler/scipopt-nix?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = inputs @ {flake-parts, ...}:
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
-
-      perSystem = {
-        config,
-        self',
-        inputs',
+  outputs = {
+    nixpkgs,
+    scipopt-nix,
+    ...
+  }: let
+    systems = [
+      "x86_64-linux"
+      "aarch64-linux"
+    ];
+    eachSystems = f:
+      nixpkgs.lib.genAttrs systems (
+        system:
+          f {
+            inherit system;
+            pkgs = nixpkgs.legacyPackages.${system};
+            scipoptPkgs = scipopt-nix.packages."${system}";
+          }
+      );
+  in {
+    devShells = eachSystems (
+      {
         pkgs,
-        system,
+        scipoptPkgs,
         ...
       }: {
-        devShells.default = pkgs.mkShell {
+        default = pkgs.mkShell {
           name = "my-optimization-project";
 
-          packages = with pkgs; [
-            (python3.withPackages (
-              ps: [
-                inputs'.scipopt-nix.packages.pygcgopt
-              ]
-            ))
-          ];
+          packages = with pkgs; [(python3.withPackages (ps: [scipoptPkgs.pygcgopt]))];
         };
-      };
-    };
+      }
+    );
+  };
 }
