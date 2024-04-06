@@ -39,13 +39,13 @@
   };
   pyscipopt = {
     pname = "pyscipopt";
-    version = "v5.0.0";
+    version = "v5.0.1";
     src = fetchFromGitHub {
       owner = "scipopt";
       repo = "PySCIPOpt";
-      rev = "v5.0.0";
+      rev = "v5.0.1";
       fetchSubmodules = false;
-      sha256 = "sha256-LRw9IYAU4n+zhC0+srY4a12JjZx9o4ws7w5i2qdSu54=";
+      sha256 = "sha256-zfebn7jhvDndWAn+eB0q+2iOjPIqY143bbaKePl4FSQ=";
     };
   };
   pysoplex = {
