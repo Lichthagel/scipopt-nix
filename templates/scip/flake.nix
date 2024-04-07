@@ -36,7 +36,7 @@
         ...
       }: {
         default = pkgs.stdenv.mkDerivation {
-          name = "my-optimization-project";
+          name = "my-project";
 
           src = ./.;
 
