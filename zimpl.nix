@@ -24,4 +24,12 @@ pkgs.stdenv.mkDerivation {
     gmp
     zlib
   ];
+
+  outputs = [
+    "bin"
+    "dev"
+    "out"
+  ];
+
+  patches = [./patches/zimpl_dirs.patch];
 }

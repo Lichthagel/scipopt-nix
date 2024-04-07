@@ -30,6 +30,16 @@ in
       zlib
     ];
 
+    outputs = [
+      "bin"
+      "dev"
+      "out"
+    ];
+
+    patches = [
+      ./patches/soplex_dirs.patch
+    ];
+
     enableParallelBuilding = true;
     doCheck = true;
   }

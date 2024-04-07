@@ -75,6 +75,16 @@ in
       ++ (lib.optional (papilo != null) papilo)
       ++ (lib.optional (zimpl != null) zimpl);
 
+    outputs = [
+      "bin"
+      "dev"
+      "out"
+    ];
+
+    patches = [
+      ./patches/scip_dirs.patch
+    ];
+
     postPatch = ''
       # Add #define SCIP_DEBUG to debug files
       for file in ${builtins.concatStringsSep " " debugFiles}; do

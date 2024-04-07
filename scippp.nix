@@ -24,6 +24,11 @@ in
       scip
     ];
 
+    outputs = [
+      "dev"
+      "out"
+    ];
+
     enableParallelBuilding = true;
     doCheck = true;
   }

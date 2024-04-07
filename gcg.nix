@@ -44,6 +44,16 @@ in
       ])
       ++ [scip];
 
+    outputs = [
+      "bin"
+      "dev"
+      "out"
+    ];
+
+    patches = [
+      ./patches/gcg_dirs.patch
+    ];
+
     postPatch = ''
       # Add #define SCIP_DEBUG to debug files
       for file in ${builtins.concatStringsSep " " debugFiles}; do

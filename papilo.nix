@@ -33,5 +33,15 @@ in
       zlib
     ];
 
+    outputs = [
+      "bin"
+      "dev"
+      "out"
+    ];
+
+    patches = [
+      ./patches/papilo_dirs.patch
+    ];
+
     doCheck = true;
   }
