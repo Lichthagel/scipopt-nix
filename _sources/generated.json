@@ -148,13 +148,13 @@
         "pinned": false,
         "src": {
             "deepClone": false,
-            "fetchSubmodules": false,
+            "fetchSubmodules": true,
             "leaveDotGit": true,
             "name": null,
             "owner": "scipopt",
             "repo": "soplex",
             "rev": "release-700",
-            "sha256": "sha256-gSpq6YFO/4e1pkJ+ZV8v3oYk56OUEGNd+Gqn2/H8bAA=",
+            "sha256": "sha256-jsg7mfZOg9Yh4bC4NVTDB/b38wZUhebF694MTf2cWaA=",
             "type": "github"
         },
         "version": "release-700"

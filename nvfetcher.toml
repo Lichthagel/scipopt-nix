@@ -33,4 +33,5 @@ fetch.github = "scipopt/SCIPpp"
 [soplex]
 src.github = "scipopt/soplex"
 fetch.github = "scipopt/soplex"
+git.fetchSubmodules = true # nvfetcher produces wrong hash otherwise (even though there are no submodules)
 git.leaveDotGit = true

@@ -91,10 +91,10 @@
       owner = "scipopt";
       repo = "soplex";
       rev = "release-700";
-      fetchSubmodules = false;
+      fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = true;
-      sha256 = "sha256-gSpq6YFO/4e1pkJ+ZV8v3oYk56OUEGNd+Gqn2/H8bAA=";
+      sha256 = "sha256-jsg7mfZOg9Yh4bC4NVTDB/b38wZUhebF694MTf2cWaA=";
     };
   };
 }
