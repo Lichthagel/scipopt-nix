@@ -52,42 +52,62 @@ If you are working on a local copy or fork of SCIP/GCG you may want to use somet
 
     scipopt-nix = {
       url = "github:Lichthagel/scipopt-nix";
+      # url = "gitlab:jgatzweiler/scipopt-nix?host=git.or.rwth-aachen.de";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs @ {flake-parts, ...}:
-    flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux" "aarch64-linux"];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      scipopt-nix,
+    }:
+    let
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+      eachSystems =
+        f:
+        nixpkgs.lib.genAttrs systems (
+          system:
+          f {
+            inherit system;
+            pkgs = nixpkgs.legacyPackages.${system};
+            selfPkgs = self.packages.${system};
+            scipoptPkgs = scipopt-nix.packages."${system}";
+          }
+        );
+    in
+    {
+      packages = eachSystems (
+        { scipoptPkgs, ... }:
+        {
+          default = scipoptPkgs.scip.overrideAttrs (oldAttrs: {
+            src = ./.;
+          });
+        }
+      );
 
-      perSystem = {
-        config,
-        self',
-        inputs',
-        pkgs,
-        system,
-        ...
-      }: {
-        packages.default = inputs'.scipopt-nix.packages.scip.overrideAttrs (oldAttrs: {
-          src = ./.;
-        });
+      devShells = eachSystems (
+        { pkgs, selfPkgs, ... }:
+        {
+          default = pkgs.mkShell {
+            name = "scip-dev";
 
-        devShells.default = pkgs.mkShell {
-          name = "scip-dev";
+            packages = with pkgs; [
+              gdb
+              ninja
+              clang
+              cppcheck
+              valgrind
+            ];
 
-          packages = with pkgs; [
-            gdb
-            ninja
-            clang
-            cppcheck
-            valgrind
-          ];
-
-          inputsFrom = [
-            self'.packages.default
-          ];
-        };
-      };
+            inputsFrom = [ selfPkgs.default ];
+          };
+        }
+      );
     };
 }
 ```
