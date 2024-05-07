@@ -64,6 +64,7 @@ If you are working on a local copy or fork of SCIP/GCG you may want to use somet
       scipopt-nix,
     }:
     let
+      lib = nixpkgs.lib;
       systems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -85,7 +86,10 @@ If you are working on a local copy or fork of SCIP/GCG you may want to use somet
         { scipoptPkgs, ... }:
         {
           default = scipoptPkgs.scip.overrideAttrs (oldAttrs: {
-            src = ./.;
+            src = lib.fileset.toSource {
+              root = ./.;
+              fileset = lib.fileset.difference ./. ./build;
+            }; # contrary to `./.` this allows having `./build` in the working tree when using `path:.`
           });
         }
       );
@@ -110,4 +114,7 @@ If you are working on a local copy or fork of SCIP/GCG you may want to use somet
       );
     };
 }
+
 ```
+
+If you do not want to track `flake.nix` with git, you can use `nix develop/run path:.` and add `flake.nix` and `flake.lock` to `.git/info/exclude`.
