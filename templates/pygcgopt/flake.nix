@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
 
     scipopt-nix = {
-      url = "git+ssh://git@git.or.rwth-aachen.de/jgatzweiler/scipopt-nix?ref=main";
+      url = "github:Lichthagel/scipopt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

@@ -12,7 +12,8 @@ When using flakes, add
 
 ```nix
 scipopt-nix = {
-  url = "git+ssh://git@git.or.rwth-aachen.de/jgatzweiler/scipopt-nix?ref=main";
+  url = "github:Lichthagel/scipopt-nix";
+  # or "gitlab:jgatzweiler/scipopt-nix?host=git.or.rwth-aachen.de"
   inputs.nixpkgs.follows = "nixpkgs";
 };
 ```
@@ -33,7 +34,7 @@ This repository contains some templates to get you started.
 To use a template, run
 
 ```sh
-nix flake init -t "git+ssh://git@git.or.rwth-aachen.de/jgatzweiler/scipopt-nix?ref=main#<template>"
+nix flake init -t "github:Lichthagel/scipopt-nix#<template>"
 ```
 
 where `<template>` is one of the names in the table above.
@@ -50,7 +51,7 @@ If you are working on a local copy or fork of SCIP/GCG you may want to use somet
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
 
     scipopt-nix = {
-      url = "git+ssh://git@git.or.rwth-aachen.de/jgatzweiler/scipopt-nix?ref=main";
+      url = "github:Lichthagel/scipopt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
