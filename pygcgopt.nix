@@ -37,6 +37,10 @@ in
 
     enableParallelBuilding = true;
 
-    SCIPOPTDIR = "${scip}";
-    GCGOPTDIR = "${gcg}";
+    patches = [ ./patches/pygcgopt_dirs.patch ];
+
+    SCIPINCLUDEDIR = "${scip.dev}/include";
+    SCIPLIBDIR = "${scip.out}/lib";
+    GCGINCLUDEDIR = "${gcg.dev}/include";
+    GCGLIBDIR = "${gcg.out}/lib";
   }
