@@ -31,5 +31,8 @@ in
 
     enableParallelBuilding = true;
 
-    SOPLEX_DIR = "${soplex}";
+    patches = [./patches/pysoplex_dirs.patch];
+
+    SOPLEX_INCLUDE_DIR = "${soplex.dev}/include";
+    SOPLEX_LIB_DIR = "${soplex.out}/lib";
   }
