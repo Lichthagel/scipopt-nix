@@ -1,5 +1,7 @@
 # scipopt-nix
 
+[![built with garnix](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fgarnix.io%2Fapi%2Fbadges%2FLichthagel%2Fscipopt-nix)](https://garnix.io)
+
 Nix flake and expressions for tools from the SCIP Optimization Suite.
 
 ## Packages
@@ -19,6 +21,10 @@ scipopt-nix = {
 ```
 
 to your inputs.
+
+### Binary cache
+
+`scipopt-nix` uses Garnix CI. To access its binary cache see [here](https://garnix.io/docs/caching).
 
 ## Templates
 
