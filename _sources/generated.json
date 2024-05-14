@@ -113,11 +113,11 @@
             "name": null,
             "owner": "scipopt",
             "repo": "scip",
-            "rev": "v900",
-            "sha256": "sha256-mcCExe5lHmW2nTKbSXXifA9LIclru9LPlFG5Aj8K3+M=",
+            "rev": "v901",
+            "sha256": "sha256-Fw54eCUfDcZgorSF4SouMHs9uoRKjGqVzKVFl2Hvqxw=",
             "type": "github"
         },
-        "version": "v900"
+        "version": "v901"
     },
     "scippp": {
         "cargoLocks": null,
