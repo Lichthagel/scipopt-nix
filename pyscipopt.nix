@@ -38,5 +38,8 @@ in
 
     enableParallelBuilding = true;
 
-    SCIPOPTDIR = "${scip}";
+    patches = [ ./patches/pyscipopt_dirs.patch ];
+
+    SCIPINCLUDEDIR = "${scip.dev}/include";
+    SCIPLIBDIR = "${scip.out}/lib";
   }
