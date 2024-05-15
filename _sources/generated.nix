@@ -3,60 +3,65 @@
 {
   gcg = {
     pname = "gcg";
-    version = "v362";
+    version = "30826aa9c323b900dc3abfdf740aa16a01957732";
     src = fetchFromGitHub {
       owner = "scipopt";
       repo = "gcg";
-      rev = "v362";
+      rev = "30826aa9c323b900dc3abfdf740aa16a01957732";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = true;
-      sha256 = "sha256-+/ZlCJRvXvNjCjhrB1Gi01D5m4LLTe48hQho1Wm4u7Y=";
+      sha256 = "sha256-E5vtCq8HeRt5AelwThKsxe+G+iWkMHF6ywIFhIA2YtA=";
     };
+    date = "2024-05-10";
   };
   ipopt = {
     pname = "ipopt";
-    version = "releases/3.14.16";
+    version = "e10e5c738605f0525a50cbdaa624d56378986c77";
     src = fetchFromGitHub {
       owner = "coin-or";
       repo = "Ipopt";
-      rev = "releases/3.14.16";
+      rev = "e10e5c738605f0525a50cbdaa624d56378986c77";
       fetchSubmodules = false;
-      sha256 = "sha256-ZuiZZMq7NzOm6CCJgMBgEWs8PEfM3pVr2yOWbS42l8U=";
+      sha256 = "sha256-UcH1aibMTb1McKjztbIS+/XJGqOiujYRzS33sJySuVU=";
     };
+    date = "2024-07-04";
   };
   mip-dd = {
     pname = "mip-dd";
-    version = "v1.0.0";
+    version = "b8f63cc8686106c3d8e2af0e35a4d70c31f6cbbc";
     src = fetchFromGitHub {
       owner = "scipopt";
       repo = "MIP-DD";
-      rev = "v1.0.0";
+      rev = "b8f63cc8686106c3d8e2af0e35a4d70c31f6cbbc";
       fetchSubmodules = false;
-      sha256 = "sha256-1xUBhBq0Ie4MG65GW4UrWKcRj1Po/uT7Z1tptu7DTL0=";
+      sha256 = "sha256-2ocgNLvMWrH8yJqoBmOL7+bTEFfdR6U9VPqC+DGQvjk=";
     };
+    date = "2024-07-08";
   };
   mumps-harness = {
     pname = "mumps-harness";
-    version = "releases/3.0.7";
+    version = "bd0bdf9baa3f3677bd34fb36ce63b2b32cc6cc7d";
     src = fetchFromGitHub {
       owner = "coin-or-tools";
       repo = "ThirdParty-Mumps";
-      rev = "releases/3.0.7";
+      rev = "bd0bdf9baa3f3677bd34fb36ce63b2b32cc6cc7d";
       fetchSubmodules = false;
-      sha256 = "sha256-4P/aR2oUKU5l3eTVs8twQHS3fyPDD7rkAcFc20ZzZHU=";
+      sha256 = "sha256-OAKVmRTfA/cl5HcizsucsQQEPglwOHWXlEUPijeXxZA=";
     };
+    date = "2024-07-10";
   };
   papilo = {
     pname = "papilo";
-    version = "v2.3.0";
+    version = "57f126b066753d0f869117cdc42c4824006a7c68";
     src = fetchFromGitHub {
       owner = "scipopt";
       repo = "papilo";
-      rev = "v2.3.0";
+      rev = "57f126b066753d0f869117cdc42c4824006a7c68";
       fetchSubmodules = false;
-      sha256 = "sha256-rB8kRyBxd+zn3XFueTQoN16jbFpXMvneqatQm8Hh2Hg=";
+      sha256 = "sha256-yKRSKXqNgvckFlbZVhQIlgvJoOdOGNvbNPDqXAFMyJw=";
     };
+    date = "2024-07-10";
   };
   pygcgopt = {
     pname = "pygcgopt";
@@ -72,14 +77,15 @@
   };
   pyscipopt = {
     pname = "pyscipopt";
-    version = "v5.1.1";
+    version = "14a8581c7d6187a6023ca5edf936a888090c53d1";
     src = fetchFromGitHub {
       owner = "scipopt";
       repo = "PySCIPOpt";
-      rev = "v5.1.1";
+      rev = "14a8581c7d6187a6023ca5edf936a888090c53d1";
       fetchSubmodules = false;
-      sha256 = "sha256-j51AxMG1DPD/ORqkEzoBncpPnciqBaQBmOE7PnzakwA=";
+      sha256 = "sha256-7H+o5cZJc4amWpb+XYcQ5EDKdSNVd/E9Bvv5OwKak0E=";
     };
+    date = "2024-07-05";
   };
   pysoplex = {
     pname = "pysoplex";
@@ -95,40 +101,43 @@
   };
   scip = {
     pname = "scip";
-    version = "v910";
+    version = "69956aabcf336b7e2c7526759df495a55c8b82c4";
     src = fetchFromGitHub {
       owner = "scipopt";
       repo = "scip";
-      rev = "v910";
+      rev = "69956aabcf336b7e2c7526759df495a55c8b82c4";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = true;
-      sha256 = "sha256-DDBPG1evnzbon/ESXP22x4HZSKL/Zr27N1xYIa0odrs=";
+      sha256 = "sha256-voYkihn0IV3+lVrgYLxXnuo5JwXNOJf8pCI5UKvZ+Zs=";
     };
+    date = "2024-07-11";
   };
   scippp = {
     pname = "scippp";
-    version = "1.2.0";
+    version = "bb9f30ded869e587e48819585ced36e287b7c01f";
     src = fetchFromGitHub {
       owner = "scipopt";
       repo = "SCIPpp";
-      rev = "1.2.0";
+      rev = "bb9f30ded869e587e48819585ced36e287b7c01f";
       fetchSubmodules = false;
       sha256 = "sha256-RbxIgATECLJCopShm98+ogfFoCv2yWH1/1QcZyo9GKo=";
     };
+    date = "2024-05-21";
   };
   soplex = {
     pname = "soplex";
-    version = "release-710";
+    version = "416b95376627036c1df7f2c5ed0bdc2a0944f2e2";
     src = fetchFromGitHub {
       owner = "scipopt";
       repo = "soplex";
-      rev = "release-710";
+      rev = "416b95376627036c1df7f2c5ed0bdc2a0944f2e2";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = true;
-      sha256 = "sha256-ekp6eWf4W5B6z1lp3CDqToWmFMZZAMpLzstZ62CC5j0=";
+      sha256 = "sha256-XyX7tYrO00+eAuYtpxYZzFzHXt1LOXUZy7LMYHnqcIQ=";
     };
+    date = "2024-06-20";
   };
   vipr = {
     pname = "vipr";

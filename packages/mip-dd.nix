@@ -17,17 +17,12 @@
     .mip-dd;
 in
   pkgs.stdenv.mkDerivation {
-    inherit (mip-dd-src) pname src;
-
-    version = let
-      matches = builtins.match "v([0-9]+).([0-9]+).([0-9]+)" mip-dd-src.version;
-    in
-      builtins.concatStringsSep "." matches;
+    inherit (mip-dd-src) pname version src;
 
     outputs = [
       "out"
       "dev"
-      "bin"
+      # "bin"
     ];
 
     nativeBuildInputs = with pkgs; [cmake];
@@ -41,7 +36,10 @@ in
     enableParallelBuilding = true;
     doCheck = true;
 
-    cmakeFlags = ["-D TBB=ON"];
+    cmakeFlags = [
+      "-D TBB=ON"
+      "-D SCIP_DIR=${scip.dev}"
+    ];
 
     meta = {
       description = "Delta-Debugging of MIP-Solvers";

@@ -1,7 +1,7 @@
 {
     "gcg": {
         "cargoLocks": null,
-        "date": null,
+        "date": "2024-05-10",
         "extract": null,
         "name": "gcg",
         "passthru": null,
@@ -13,15 +13,15 @@
             "name": null,
             "owner": "scipopt",
             "repo": "gcg",
-            "rev": "v362",
-            "sha256": "sha256-+/ZlCJRvXvNjCjhrB1Gi01D5m4LLTe48hQho1Wm4u7Y=",
+            "rev": "30826aa9c323b900dc3abfdf740aa16a01957732",
+            "sha256": "sha256-E5vtCq8HeRt5AelwThKsxe+G+iWkMHF6ywIFhIA2YtA=",
             "type": "github"
         },
-        "version": "v362"
+        "version": "30826aa9c323b900dc3abfdf740aa16a01957732"
     },
     "ipopt": {
         "cargoLocks": null,
-        "date": null,
+        "date": "2024-07-04",
         "extract": null,
         "name": "ipopt",
         "passthru": null,
@@ -33,15 +33,15 @@
             "name": null,
             "owner": "coin-or",
             "repo": "Ipopt",
-            "rev": "releases/3.14.16",
-            "sha256": "sha256-ZuiZZMq7NzOm6CCJgMBgEWs8PEfM3pVr2yOWbS42l8U=",
+            "rev": "e10e5c738605f0525a50cbdaa624d56378986c77",
+            "sha256": "sha256-UcH1aibMTb1McKjztbIS+/XJGqOiujYRzS33sJySuVU=",
             "type": "github"
         },
-        "version": "releases/3.14.16"
+        "version": "e10e5c738605f0525a50cbdaa624d56378986c77"
     },
     "mip-dd": {
         "cargoLocks": null,
-        "date": null,
+        "date": "2024-07-08",
         "extract": null,
         "name": "mip-dd",
         "passthru": null,
@@ -53,15 +53,15 @@
             "name": null,
             "owner": "scipopt",
             "repo": "MIP-DD",
-            "rev": "v1.0.0",
-            "sha256": "sha256-1xUBhBq0Ie4MG65GW4UrWKcRj1Po/uT7Z1tptu7DTL0=",
+            "rev": "b8f63cc8686106c3d8e2af0e35a4d70c31f6cbbc",
+            "sha256": "sha256-2ocgNLvMWrH8yJqoBmOL7+bTEFfdR6U9VPqC+DGQvjk=",
             "type": "github"
         },
-        "version": "v1.0.0"
+        "version": "b8f63cc8686106c3d8e2af0e35a4d70c31f6cbbc"
     },
     "mumps-harness": {
         "cargoLocks": null,
-        "date": null,
+        "date": "2024-07-10",
         "extract": null,
         "name": "mumps-harness",
         "passthru": null,
@@ -73,15 +73,15 @@
             "name": null,
             "owner": "coin-or-tools",
             "repo": "ThirdParty-Mumps",
-            "rev": "releases/3.0.7",
-            "sha256": "sha256-4P/aR2oUKU5l3eTVs8twQHS3fyPDD7rkAcFc20ZzZHU=",
+            "rev": "bd0bdf9baa3f3677bd34fb36ce63b2b32cc6cc7d",
+            "sha256": "sha256-OAKVmRTfA/cl5HcizsucsQQEPglwOHWXlEUPijeXxZA=",
             "type": "github"
         },
-        "version": "releases/3.0.7"
+        "version": "bd0bdf9baa3f3677bd34fb36ce63b2b32cc6cc7d"
     },
     "papilo": {
         "cargoLocks": null,
-        "date": null,
+        "date": "2024-07-10",
         "extract": null,
         "name": "papilo",
         "passthru": null,
@@ -93,11 +93,11 @@
             "name": null,
             "owner": "scipopt",
             "repo": "papilo",
-            "rev": "v2.3.0",
-            "sha256": "sha256-rB8kRyBxd+zn3XFueTQoN16jbFpXMvneqatQm8Hh2Hg=",
+            "rev": "57f126b066753d0f869117cdc42c4824006a7c68",
+            "sha256": "sha256-yKRSKXqNgvckFlbZVhQIlgvJoOdOGNvbNPDqXAFMyJw=",
             "type": "github"
         },
-        "version": "v2.3.0"
+        "version": "57f126b066753d0f869117cdc42c4824006a7c68"
     },
     "pygcgopt": {
         "cargoLocks": null,
@@ -121,7 +121,7 @@
     },
     "pyscipopt": {
         "cargoLocks": null,
-        "date": null,
+        "date": "2024-07-05",
         "extract": null,
         "name": "pyscipopt",
         "passthru": null,
@@ -133,11 +133,11 @@
             "name": null,
             "owner": "scipopt",
             "repo": "PySCIPOpt",
-            "rev": "v5.1.1",
-            "sha256": "sha256-j51AxMG1DPD/ORqkEzoBncpPnciqBaQBmOE7PnzakwA=",
+            "rev": "14a8581c7d6187a6023ca5edf936a888090c53d1",
+            "sha256": "sha256-7H+o5cZJc4amWpb+XYcQ5EDKdSNVd/E9Bvv5OwKak0E=",
             "type": "github"
         },
-        "version": "v5.1.1"
+        "version": "14a8581c7d6187a6023ca5edf936a888090c53d1"
     },
     "pysoplex": {
         "cargoLocks": null,
@@ -161,7 +161,7 @@
     },
     "scip": {
         "cargoLocks": null,
-        "date": null,
+        "date": "2024-07-11",
         "extract": null,
         "name": "scip",
         "passthru": null,
@@ -173,15 +173,15 @@
             "name": null,
             "owner": "scipopt",
             "repo": "scip",
-            "rev": "v910",
-            "sha256": "sha256-DDBPG1evnzbon/ESXP22x4HZSKL/Zr27N1xYIa0odrs=",
+            "rev": "69956aabcf336b7e2c7526759df495a55c8b82c4",
+            "sha256": "sha256-voYkihn0IV3+lVrgYLxXnuo5JwXNOJf8pCI5UKvZ+Zs=",
             "type": "github"
         },
-        "version": "v910"
+        "version": "69956aabcf336b7e2c7526759df495a55c8b82c4"
     },
     "scippp": {
         "cargoLocks": null,
-        "date": null,
+        "date": "2024-05-21",
         "extract": null,
         "name": "scippp",
         "passthru": null,
@@ -193,15 +193,15 @@
             "name": null,
             "owner": "scipopt",
             "repo": "SCIPpp",
-            "rev": "1.2.0",
+            "rev": "bb9f30ded869e587e48819585ced36e287b7c01f",
             "sha256": "sha256-RbxIgATECLJCopShm98+ogfFoCv2yWH1/1QcZyo9GKo=",
             "type": "github"
         },
-        "version": "1.2.0"
+        "version": "bb9f30ded869e587e48819585ced36e287b7c01f"
     },
     "soplex": {
         "cargoLocks": null,
-        "date": null,
+        "date": "2024-06-20",
         "extract": null,
         "name": "soplex",
         "passthru": null,
@@ -213,11 +213,11 @@
             "name": null,
             "owner": "scipopt",
             "repo": "soplex",
-            "rev": "release-710",
-            "sha256": "sha256-ekp6eWf4W5B6z1lp3CDqToWmFMZZAMpLzstZ62CC5j0=",
+            "rev": "416b95376627036c1df7f2c5ed0bdc2a0944f2e2",
+            "sha256": "sha256-XyX7tYrO00+eAuYtpxYZzFzHXt1LOXUZy7LMYHnqcIQ=",
             "type": "github"
         },
-        "version": "release-710"
+        "version": "416b95376627036c1df7f2c5ed0bdc2a0944f2e2"
     },
     "vipr": {
         "cargoLocks": null,

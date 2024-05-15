@@ -18,12 +18,7 @@
     .gcg;
 in
   pkgs.stdenv.mkDerivation {
-    inherit (gcg-src) pname src;
-
-    version = let
-      matches = builtins.match "v([0-9]+)([0-9])([0-9])" gcg-src.version;
-    in
-      builtins.concatStringsSep "." matches;
+    inherit (gcg-src) pname version src;
 
     nativeBuildInputs = with pkgs; [
       cmake

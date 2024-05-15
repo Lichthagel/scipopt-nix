@@ -17,12 +17,7 @@
     .papilo;
 in
   pkgs.stdenv.mkDerivation {
-    inherit (papilo-src) pname src;
-
-    version = let
-      matches = builtins.match "v(.+)" papilo-src.version;
-    in
-      builtins.head matches;
+    inherit (papilo-src) pname version src;
 
     nativeBuildInputs = with pkgs; [cmake];
 
