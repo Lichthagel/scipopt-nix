@@ -26,12 +26,6 @@ in
   buildPythonPackage {
     inherit (pygcgopt-src) pname version src;
 
-    # version =
-    #   let
-    #     matches = builtins.match "v(.+)" pygcgopt-src.version;
-    #   in
-    #   builtins.head matches;
-
     nativeBuildInputs = [cython];
 
     propagatedBuildInputs = [pyscipopt];

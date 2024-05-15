@@ -21,12 +21,7 @@
     .scip;
 in
   pkgs.stdenv.mkDerivation {
-    inherit (scip-src) pname src;
-
-    version = let
-      matches = builtins.match "v([0-9]+)([0-9])([0-9])" scip-src.version;
-    in
-      builtins.concatStringsSep "." matches;
+    inherit (scip-src) pname version src;
 
     nativeBuildInputs = with pkgs; [
       cmake

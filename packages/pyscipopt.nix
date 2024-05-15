@@ -23,12 +23,7 @@
     .pyscipopt;
 in
   buildPythonPackage {
-    inherit (pyscipopt-src) pname src;
-
-    version = let
-      matches = builtins.match "v(.+)" pyscipopt-src.version;
-    in
-      builtins.head matches;
+    inherit (pyscipopt-src) pname version src;
 
     pyproject = true;
 

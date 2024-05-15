@@ -21,12 +21,7 @@ in
   pkgs.stdenv.mkDerivation {
     pname = "ipopt-mumps";
 
-    version = let
-      matches = builtins.match "releases\/([0-9]+)\.([0-9]+)\.([0-9]+)" ipopt-src.version;
-    in
-      builtins.concatStringsSep "." matches;
-
-    inherit (ipopt-src) src;
+    inherit (ipopt-src) version src;
 
     nativeBuildInputs = [pkgs.pkg-config];
 

@@ -16,12 +16,7 @@
     .soplex;
 in
   pkgs.stdenv.mkDerivation {
-    inherit (soplex-src) pname src;
-
-    version = let
-      matches = builtins.match "release-([0-9]+)([0-9])([0-9])" soplex-src.version;
-    in
-      builtins.concatStringsSep "." matches;
+    inherit (soplex-src) pname version src;
 
     nativeBuildInputs = with pkgs; [
       cmake
