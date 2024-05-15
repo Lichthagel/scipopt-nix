@@ -4,7 +4,7 @@
   ...
 }: let
   mumps-harness-src =
-    (import ./_sources/generated.nix {
+    (import ../_sources/generated.nix {
       inherit
         (pkgs)
         fetchgit

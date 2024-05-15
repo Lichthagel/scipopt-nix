@@ -7,7 +7,7 @@
 }:
 assert (!pkgs.blas.isILP64) && (!pkgs.lapack.isILP64); let
   ipopt-src =
-    (import ./_sources/generated.nix {
+    (import ../_sources/generated.nix {
       inherit
         (pkgs)
         fetchgit

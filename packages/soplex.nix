@@ -4,7 +4,7 @@
   ...
 }: let
   soplex-src =
-    (import ./_sources/generated.nix {
+    (import ../_sources/generated.nix {
       inherit
         (pkgs)
         fetchgit
@@ -41,7 +41,7 @@ in
     ];
 
     patches = [
-      ./patches/soplex_dirs.patch
+      ../patches/soplex_dirs.patch
     ];
 
     enableParallelBuilding = true;

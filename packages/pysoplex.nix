@@ -11,7 +11,7 @@
   ...
 }: let
   pysoplex-src =
-    (import ./_sources/generated.nix {
+    (import ../_sources/generated.nix {
       inherit
         fetchgit
         fetchurl
@@ -31,7 +31,7 @@ in
 
     enableParallelBuilding = true;
 
-    patches = [./patches/pysoplex_dirs.patch];
+    patches = [../patches/pysoplex_dirs.patch];
 
     SOPLEX_INCLUDE_DIR = "${soplex.dev}/include";
     SOPLEX_LIB_DIR = "${soplex.out}/lib";

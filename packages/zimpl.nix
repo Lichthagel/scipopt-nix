@@ -31,7 +31,7 @@ pkgs.stdenv.mkDerivation {
     "out"
   ];
 
-  patches = [./patches/zimpl_dirs.patch];
+  patches = [../patches/zimpl_dirs.patch];
 
   meta = {
     description = "Mathematical modeling language for linear or (mixed-)integer programs";

@@ -9,7 +9,7 @@
   ...
 }: let
   scip-src =
-    (import ./_sources/generated.nix {
+    (import ../_sources/generated.nix {
       inherit
         (pkgs)
         fetchgit
@@ -84,7 +84,7 @@ in
     ];
 
     patches = [
-      ./patches/scip_dirs.patch
+      ../patches/scip_dirs.patch
     ];
 
     postPatch = ''

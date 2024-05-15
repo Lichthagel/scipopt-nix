@@ -2,9 +2,10 @@
   lib ? import <nixpkgs/lib> {},
   pkgs ? import <nixpkgs> {},
   scip ? pkgs.callPackage ./scip.nix {},
+  ...
 }: let
   scippp-src =
-    (import ./_sources/generated.nix {
+    (import ../_sources/generated.nix {
       inherit
         (pkgs)
         fetchgit

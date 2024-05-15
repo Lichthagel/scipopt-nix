@@ -5,7 +5,7 @@
   ...
 }: let
   papilo-src =
-    (import ./_sources/generated.nix {
+    (import ../_sources/generated.nix {
       inherit
         (pkgs)
         fetchgit
@@ -41,7 +41,7 @@ in
     ];
 
     patches = [
-      ./patches/papilo_dirs.patch
+      ../patches/papilo_dirs.patch
     ];
 
     doCheck = true;

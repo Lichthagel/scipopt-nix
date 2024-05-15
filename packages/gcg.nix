@@ -6,7 +6,7 @@
   ...
 }: let
   gcg-src =
-    (import ./_sources/generated.nix {
+    (import ../_sources/generated.nix {
       inherit
         (pkgs)
         fetchgit
@@ -52,7 +52,7 @@ in
     ];
 
     patches = [
-      ./patches/gcg_dirs.patch
+      ../patches/gcg_dirs.patch
     ];
 
     postPatch = ''

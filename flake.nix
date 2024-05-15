@@ -46,28 +46,7 @@
     };
 
     packages = eachSystems (
-      {pkgs, ...}: rec {
-        gcg = pkgs.callPackage ./gcg.nix {inherit scip;};
-        ipopt-mumps = pkgs.callPackage ./ipopt-mumps.nix {};
-        mumps = pkgs.callPackage ./mumps.nix {};
-        scip = pkgs.callPackage ./scip.nix {
-          inherit soplex papilo zimpl ipopt-mumps;
-        };
-        soplex = pkgs.callPackage ./soplex.nix {};
-        papilo = pkgs.callPackage ./papilo.nix {inherit soplex;};
-        zimpl = pkgs.callPackage ./zimpl.nix {};
-        ug = pkgs.callPackage ./ug.nix {
-          inherit scip;
-        };
-
-        pysoplex = pkgs.python3Packages.callPackage ./pysoplex.nix {};
-        pyscipopt = pkgs.python3Packages.callPackage ./pyscipopt.nix {inherit scip;};
-        pygcgopt = pkgs.python3Packages.callPackage ./pygcgopt.nix {inherit scip gcg pyscipopt;};
-
-        scippp = pkgs.callPackage ./scippp.nix {inherit scip;};
-
-        default = scip;
-      }
+      import ./packages
     );
 
     devShells = eachSystems (

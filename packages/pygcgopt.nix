@@ -13,7 +13,7 @@
   ...
 }: let
   pygcgopt-src =
-    (import ./_sources/generated.nix {
+    (import ../_sources/generated.nix {
       inherit
         fetchgit
         fetchurl
@@ -38,7 +38,7 @@ in
 
     enableParallelBuilding = true;
 
-    patches = [./patches/pygcgopt_dirs.patch];
+    patches = [../patches/pygcgopt_dirs.patch];
 
     SCIPINCLUDEDIR = "${scip.dev}/include";
     SCIPLIBDIR = "${scip.out}/lib";
