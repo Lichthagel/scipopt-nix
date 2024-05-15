@@ -19,6 +19,26 @@
         },
         "version": "v360"
     },
+    "ipopt": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "ipopt",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "coin-or",
+            "repo": "Ipopt",
+            "rev": "releases/3.14.16",
+            "sha256": "sha256-ZuiZZMq7NzOm6CCJgMBgEWs8PEfM3pVr2yOWbS42l8U=",
+            "type": "github"
+        },
+        "version": "releases/3.14.16"
+    },
     "mumps-harness": {
         "cargoLocks": null,
         "date": null,

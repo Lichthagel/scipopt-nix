@@ -14,6 +14,17 @@
       sha256 = "sha256-MRgsmP9LuTpS/FEPBNJSrIbYlUGh8EOEcbbl0MVEiRA=";
     };
   };
+  ipopt = {
+    pname = "ipopt";
+    version = "releases/3.14.16";
+    src = fetchFromGitHub {
+      owner = "coin-or";
+      repo = "Ipopt";
+      rev = "releases/3.14.16";
+      fetchSubmodules = false;
+      sha256 = "sha256-ZuiZZMq7NzOm6CCJgMBgEWs8PEfM3pVr2yOWbS42l8U=";
+    };
+  };
   mumps-harness = {
     pname = "mumps-harness";
     version = "releases/3.0.6";

@@ -4,6 +4,10 @@ src.ignored = "v1801 v0903 v0902 v0901"
 fetch.github = "scipopt/gcg"
 git.leaveDotGit = true
 
+[ipopt]
+src.github = "coin-or/Ipopt"
+fetch.github = "coin-or/Ipopt"
+
 [mumps-harness]
 src.github_tag = "coin-or-tools/ThirdParty-Mumps"
 fetch.github = "coin-or-tools/ThirdParty-Mumps"

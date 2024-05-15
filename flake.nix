@@ -48,10 +48,10 @@
     packages = eachSystems (
       {pkgs, ...}: rec {
         gcg = pkgs.callPackage ./gcg.nix {inherit scip;};
+        ipopt-mumps = pkgs.callPackage ./ipopt-mumps.nix {};
         mumps = pkgs.callPackage ./mumps.nix {};
         scip = pkgs.callPackage ./scip.nix {
-          inherit soplex papilo zimpl;
-          ipopt = null; # explicitly disable ipopt, since libhsl is not found...
+          inherit soplex papilo zimpl ipopt-mumps;
         };
         soplex = pkgs.callPackage ./soplex.nix {};
         papilo = pkgs.callPackage ./papilo.nix {inherit soplex;};

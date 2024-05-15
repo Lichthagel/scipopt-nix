@@ -4,7 +4,7 @@
   papilo ? pkgs.callPackage ./papilo.nix {},
   soplex ? pkgs.callPackage ./soplex.nix {},
   zimpl ? pkgs.callPackage ./zimpl.nix {},
-  ipopt ? null,
+  ipopt-mumps ? pkgs.callPackage ./ipopt-mumps.nix {},
   debugFiles ? [], # add `#define SCIP_DEBUG` to these files (e.g. ["src/scip/cons_linear.c"])
   ...
 }: let
@@ -73,7 +73,7 @@ in
         })
         zlib
       ])
-      ++ (lib.optional (ipopt != null) ipopt)
+      ++ (lib.optional (ipopt-mumps != null) ipopt-mumps)
       ++ (lib.optional (papilo != null) papilo)
       ++ (lib.optional (zimpl != null) zimpl);
 
@@ -102,7 +102,7 @@ in
         "-D AUTOBUILD=off"
         "-D LAPACK=on"
       ]
-      ++ (lib.optional (ipopt == null) "-D IPOPT=OFF")
+      ++ (lib.optional (ipopt-mumps == null) "-D IPOPT=OFF")
       ++ (lib.optional (papilo == null) "-D PAPILO=OFF")
       ++ (lib.optional (zimpl == null) "-D ZIMPL=OFF");
   }
