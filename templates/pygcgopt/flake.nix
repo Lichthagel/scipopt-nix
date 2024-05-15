@@ -38,7 +38,7 @@
         default = pkgs.mkShell {
           name = "my-optimization-project";
 
-          packages = with pkgs; [(python3.withPackages (ps: [scipoptPkgs.pygcgopt]))];
+          packages = with pkgs; [(python3.withPackages (_: [scipoptPkgs.pygcgopt]))];
         };
       }
     );

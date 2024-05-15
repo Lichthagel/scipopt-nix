@@ -9,8 +9,7 @@ update:
   nvfetcher
 
 format:
-  alejandra ./*.nix ./templates/*/*.nix
+  alejandra ./*.nix ./templates/*/*.nix ./checks/*.nix
 
 check:
-  statix check .
-  nix flake check --all-systems
+  nix flake check

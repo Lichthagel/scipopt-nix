@@ -5,7 +5,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
   };
 
-  outputs = {nixpkgs, ...}: let
+  outputs = {
+    self,
+    nixpkgs,
+  }: let
     systems = [
       "x86_64-linux"
       "aarch64-linux"
@@ -16,6 +19,7 @@
           f {
             inherit system;
             pkgs = nixpkgs.legacyPackages.${system};
+            selfPkgs = self.packages.${system};
           }
       );
   in {
@@ -40,6 +44,7 @@
         description = "An optimization project using PyGCGOpt in Python";
       };
     };
+
     packages = eachSystems (
       {pkgs, ...}: rec {
         gcg = pkgs.callPackage ./gcg.nix {inherit scip;};
@@ -62,13 +67,17 @@
     );
 
     devShells = eachSystems (
-      {pkgs, ...}: {
+      {
+        system,
+        pkgs,
+        ...
+      }: {
         default = pkgs.mkShell {
           packages = with pkgs; [
-            alejandra
+            self.formatter.${system}
             just
-            nil
             nvfetcher
+            deadnix
             statix
           ];
         };
@@ -78,5 +87,7 @@
     formatter = eachSystems (
       {pkgs, ...}: pkgs.alejandra
     );
+
+    checks = eachSystems (perSystemInputs: import ./checks ({inherit self nixpkgs;} // perSystemInputs));
   };
 }
