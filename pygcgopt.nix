@@ -1,4 +1,5 @@
 {
+  lib ? import <nixpkgs/lib> {},
   callPackage,
   buildPythonPackage,
   fetchgit,
@@ -43,4 +44,10 @@ in
     SCIPLIBDIR = "${scip.out}/lib";
     GCGINCLUDEDIR = "${gcg.dev}/include";
     GCGLIBDIR = "${gcg.out}/lib";
+
+    meta = {
+      description = "Python interface for the GCG Solver.";
+      homepage = "https://scipopt.github.io/PyGCGOpt/";
+      license = lib.licenses.mit;
+    };
   }

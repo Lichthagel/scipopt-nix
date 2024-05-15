@@ -1,4 +1,5 @@
 {
+  lib ? import <nixpkgs/lib> {},
   pkgs ? import <nixpkgs> {},
   scip ? pkgs.callPackage ./scip.nix {},
 }: let
@@ -31,4 +32,10 @@ in
 
     enableParallelBuilding = true;
     doCheck = true;
+
+    meta = {
+      description = "A C++ wrapper for SCIP";
+      homepage = "https://scipopt.github.io/SCIPpp/";
+      license = lib.licenses.asl20;
+    };
   }

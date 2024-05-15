@@ -1,4 +1,8 @@
-{pkgs ? import <nixpkgs> {}, ...}: let
+{
+  lib ? import <nixpkgs/lib> {},
+  pkgs ? import <nixpkgs> {},
+  ...
+}: let
   mumps-harness-src =
     (import ./_sources/generated.nix {
       inherit
@@ -66,4 +70,10 @@ in
     configureFlags = ["--with-lapack-lflags=-llapack"];
 
     enableParallelBuilding = true;
+
+    meta = {
+      description = "A parallel sparse direct solver";
+      homepage = "https://mumps-solver.org/index.php";
+      license = with lib.licenses; [cecill-c bsd3 epl10];
+    };
   }

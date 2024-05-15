@@ -1,4 +1,5 @@
 {
+  lib ? import <nixpkgs/lib> {},
   pkgs ? import <nixpkgs> {},
   scip ? pkgs.callPackage ./scip.nix {},
   debugFiles ? [], # add `#define SCIP_DEBUG` to these files (e.g. ["src/gcg/cons_decomp.cpp"])
@@ -63,4 +64,10 @@ in
 
     enableParallelBuilding = true;
     doCheck = true;
+
+    meta = {
+      description = "Branch-and-Price & Column Generation for Everyone";
+      homepage = "https://gcg.or.rwth-aachen.de/";
+      license = lib.licenses.lgpl3;
+    };
   }

@@ -1,4 +1,5 @@
 {
+  lib ? import <nixpkgs/lib> {},
   callPackage,
   buildPythonPackage,
   fetchgit,
@@ -42,4 +43,10 @@ in
 
     SCIPINCLUDEDIR = "${scip.dev}/include";
     SCIPLIBDIR = "${scip.out}/lib";
+
+    meta = {
+      description = "Python interface for the SCIP Optimization Suite";
+      homepage = "https://scipopt.github.io/PySCIPOpt/docs/html/index.html";
+      license = lib.licenses.mit;
+    };
   }

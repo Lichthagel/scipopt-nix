@@ -35,4 +35,10 @@ in
 
     SOPLEX_INCLUDE_DIR = "${soplex.dev}/include";
     SOPLEX_LIB_DIR = "${soplex.out}/lib";
+
+    meta = {
+      description = "Python interface for the SoPlex solver";
+      homepage = "https://github.com/scipopt/pysoplex";
+      license = [];
+    };
   }

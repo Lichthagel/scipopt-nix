@@ -105,4 +105,10 @@ in
       ++ (lib.optional (ipopt-mumps == null) "-D IPOPT=OFF")
       ++ (lib.optional (papilo == null) "-D PAPILO=OFF")
       ++ (lib.optional (zimpl == null) "-D ZIMPL=OFF");
+
+    meta = {
+      description = "Solving Constraint Integer Programs";
+      homepage = "https://scipopt.org/";
+      license = lib.licenses.asl20;
+    };
   }

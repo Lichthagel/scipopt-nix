@@ -1,4 +1,5 @@
 {
+  lib ? import <nixpkgs/lib> {},
   pkgs ? import <nixpkgs> {},
   soplex ? pkgs.callPackage ./soplex.nix {},
   ...
@@ -44,4 +45,10 @@ in
     ];
 
     doCheck = true;
+
+    meta = {
+      description = "Parallel Presolve for Integer and Linear Optimization";
+      homepage = "https://github.com/scipopt/papilo";
+      license = lib.licenses.lgpl3;
+    };
   }

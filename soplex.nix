@@ -1,4 +1,8 @@
-{pkgs ? import <nixpkgs> {}, ...}: let
+{
+  lib ? import <nixpkgs/lib> {},
+  pkgs ? import <nixpkgs> {},
+  ...
+}: let
   soplex-src =
     (import ./_sources/generated.nix {
       inherit
@@ -42,4 +46,10 @@ in
 
     enableParallelBuilding = true;
     doCheck = true;
+
+    meta = {
+      description = "Sequential object-oriented simPlex";
+      homepage = "https://soplex.zib.de/";
+      license = lib.licenses.asl20;
+    };
   }

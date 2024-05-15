@@ -32,4 +32,10 @@ pkgs.stdenv.mkDerivation {
   ];
 
   patches = [./patches/zimpl_dirs.patch];
+
+  meta = {
+    description = "Mathematical modeling language for linear or (mixed-)integer programs";
+    homepage = "https://zimpl.zib.de/";
+    license = lib.licenses.lgpl3;
+  };
 }
