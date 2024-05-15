@@ -38,7 +38,7 @@ in
 
     enableParallelBuilding = true;
 
-    patches = [ ./patches/pyscipopt_dirs.patch ];
+    patches = [./patches/pyscipopt_dirs.patch];
 
     SCIPINCLUDEDIR = "${scip.dev}/include";
     SCIPLIBDIR = "${scip.out}/lib";
