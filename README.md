@@ -1,6 +1,8 @@
 # scipopt-nix
 
-[![built with garnix](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fgarnix.io%2Fapi%2Fbadges%2FLichthagel%2Fscipopt-nix)](https://garnix.io)
+[![GitHub License](https://img.shields.io/github/license/Lichthagel/scipopt-nix?style=flat-square)](./LICENSE)
+[![GitHub top language](https://img.shields.io/github/languages/top/Lichthagel/scipopt-nix?style=flat-square)](https://github.com/search?q=repo%3ALichthagel%2Fscipopt-nix++language%3ANix&type=code)
+[![built with garnix](https://img.shields.io/endpoint?url=https%3A%2F%2Fgarnix.io%2Fapi%2Fbadges%2FLichthagel%2Fscipopt-nix&style=flat-square)](https://garnix.io)
 
 Nix flake and expressions for tools from the SCIP Optimization Suite.
 
