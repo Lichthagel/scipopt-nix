@@ -35,10 +35,12 @@ in
 
     buildInputs =
       (with pkgs; [
+        blas
         boost
         criterion
         gmp
         readline
+        lapack
         soplex
         (pkgs.stdenv.mkDerivation {
           name = "tbb-cmake"; # package tbb with cmake support
@@ -96,7 +98,11 @@ in
     doCheck = true;
 
     cmakeFlags =
-      (lib.optional (ipopt == null) "-D IPOPT=OFF")
+      [
+        "-D AUTOBUILD=off"
+        "-D LAPACK=on"
+      ]
+      ++ (lib.optional (ipopt == null) "-D IPOPT=OFF")
       ++ (lib.optional (papilo == null) "-D PAPILO=OFF")
       ++ (lib.optional (zimpl == null) "-D ZIMPL=OFF");
   }
