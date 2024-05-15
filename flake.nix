@@ -56,6 +56,9 @@
         soplex = pkgs.callPackage ./soplex.nix {};
         papilo = pkgs.callPackage ./papilo.nix {inherit soplex;};
         zimpl = pkgs.callPackage ./zimpl.nix {};
+        ug = pkgs.callPackage ./ug.nix {
+          inherit scip;
+        };
 
         pysoplex = pkgs.python3Packages.callPackage ./pysoplex.nix {};
         pyscipopt = pkgs.python3Packages.callPackage ./pyscipopt.nix {inherit scip;};
