@@ -14,6 +14,17 @@
       sha256 = "sha256-MRgsmP9LuTpS/FEPBNJSrIbYlUGh8EOEcbbl0MVEiRA=";
     };
   };
+  mumps-harness = {
+    pname = "mumps-harness";
+    version = "releases/3.0.6";
+    src = fetchFromGitHub {
+      owner = "coin-or-tools";
+      repo = "ThirdParty-Mumps";
+      rev = "releases/3.0.6";
+      fetchSubmodules = false;
+      sha256 = "sha256-png6fGFlJfm8rPSCskFtSB5CeAPm/Xqd2cRhuWVX5U8=";
+    };
+  };
   papilo = {
     pname = "papilo";
     version = "v2.2.1";

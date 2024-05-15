@@ -19,6 +19,26 @@
         },
         "version": "v360"
     },
+    "mumps-harness": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "mumps-harness",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "coin-or-tools",
+            "repo": "ThirdParty-Mumps",
+            "rev": "releases/3.0.6",
+            "sha256": "sha256-png6fGFlJfm8rPSCskFtSB5CeAPm/Xqd2cRhuWVX5U8=",
+            "type": "github"
+        },
+        "version": "releases/3.0.6"
+    },
     "papilo": {
         "cargoLocks": null,
         "date": null,
