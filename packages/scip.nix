@@ -35,16 +35,18 @@ in
 
     buildInputs =
       (with pkgs; [
-        blas
         boost
         criterion
         gmp
         readline
-        lapack
         soplex
         zlib
       ])
-      ++ (lib.optional (ipopt-mumps != null) ipopt-mumps)
+      ++ (
+        if ipopt-mumps != null
+        then [ipopt-mumps]
+        else [pkgs.blas pkgs.lapack]
+      )
       ++ (lib.optional (papilo != null) papilo)
       ++ (lib.optional (zimpl != null) zimpl);
 
@@ -70,10 +72,9 @@ in
 
     cmakeFlags =
       [
-        "-D AUTOBUILD=off"
-        "-D LAPACK=on"
+        "-D AUTOBUILD=OFF"
       ]
-      ++ (lib.optional (ipopt-mumps == null) "-D IPOPT=OFF")
+      ++ (lib.optional (ipopt-mumps == null) "-D IPOPT=OFF -D LAPACK=ON")
       ++ (lib.optional (papilo == null) "-D PAPILO=OFF")
       ++ (lib.optional (zimpl == null) "-D ZIMPL=OFF");
 
