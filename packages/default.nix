@@ -12,6 +12,7 @@
   soplex = pkgs.callPackage ./soplex.nix {};
   ug = pkgs.callPackage ./ug.nix {inherit scip;};
   zimpl = pkgs.callPackage ./zimpl.nix {};
+  vipr = pkgs.callPackage ./vipr.nix {};
 
   default = scip;
 }

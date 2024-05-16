@@ -130,4 +130,16 @@
       sha256 = "sha256-DSkIm1yD0z7ZcDFdugRMflxzMlm0EbyKW7ku+rnwmWs=";
     };
   };
+  vipr = {
+    pname = "vipr";
+    version = "65fda95f4412c1395bfd65ce706f84103d4afe54";
+    src = fetchFromGitHub {
+      owner = "scipopt";
+      repo = "vipr";
+      rev = "65fda95f4412c1395bfd65ce706f84103d4afe54";
+      fetchSubmodules = false;
+      sha256 = "sha256-glbEBfj17bolh9YrjrAkWRo5JMJbu7ph5R+oRDzjdgA=";
+    };
+    date = "2024-05-07";
+  };
 }

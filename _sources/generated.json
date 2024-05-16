@@ -218,5 +218,25 @@
             "type": "github"
         },
         "version": "release-701"
+    },
+    "vipr": {
+        "cargoLocks": null,
+        "date": "2024-05-07",
+        "extract": null,
+        "name": "vipr",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "scipopt",
+            "repo": "vipr",
+            "rev": "65fda95f4412c1395bfd65ce706f84103d4afe54",
+            "sha256": "sha256-glbEBfj17bolh9YrjrAkWRo5JMJbu7ph5R+oRDzjdgA=",
+            "type": "github"
+        },
+        "version": "65fda95f4412c1395bfd65ce706f84103d4afe54"
     }
 }
