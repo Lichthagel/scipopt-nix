@@ -29,9 +29,12 @@ in
     buildInputs = with pkgs; [
       boost
       gmp
-      tbb_2020_3
       soplex
       zlib
+    ];
+
+    propagatedBuildInputs = with pkgs; [
+      tbb_2021_8
     ];
 
     outputs = [
