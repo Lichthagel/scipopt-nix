@@ -1,6 +1,7 @@
 {pkgs, ...}: rec {
   gcg = pkgs.callPackage ./gcg.nix {inherit scip;};
   ipopt-mumps = pkgs.callPackage ./ipopt-mumps.nix {};
+  mip-dd = pkgs.callPackage ./mip-dd.nix {inherit scip;};
   mumps = pkgs.callPackage ./mumps.nix {};
   papilo = pkgs.callPackage ./papilo.nix {inherit soplex;};
   pygcgopt = pkgs.python3Packages.callPackage ./pygcgopt.nix {inherit scip gcg pyscipopt;};

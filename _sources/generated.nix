@@ -25,6 +25,17 @@
       sha256 = "sha256-ZuiZZMq7NzOm6CCJgMBgEWs8PEfM3pVr2yOWbS42l8U=";
     };
   };
+  mip-dd = {
+    pname = "mip-dd";
+    version = "v1.0.0";
+    src = fetchFromGitHub {
+      owner = "scipopt";
+      repo = "MIP-DD";
+      rev = "v1.0.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-1xUBhBq0Ie4MG65GW4UrWKcRj1Po/uT7Z1tptu7DTL0=";
+    };
+  };
   mumps-harness = {
     pname = "mumps-harness";
     version = "releases/3.0.6";

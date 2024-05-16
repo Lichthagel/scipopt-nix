@@ -39,6 +39,26 @@
         },
         "version": "releases/3.14.16"
     },
+    "mip-dd": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "mip-dd",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "scipopt",
+            "repo": "MIP-DD",
+            "rev": "v1.0.0",
+            "sha256": "sha256-1xUBhBq0Ie4MG65GW4UrWKcRj1Po/uT7Z1tptu7DTL0=",
+            "type": "github"
+        },
+        "version": "v1.0.0"
+    },
     "mumps-harness": {
         "cargoLocks": null,
         "date": null,

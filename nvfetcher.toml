@@ -8,6 +8,10 @@ git.leaveDotGit = true
 src.github = "coin-or/Ipopt"
 fetch.github = "coin-or/Ipopt"
 
+[mip-dd]
+src.github = "scipopt/MIP-DD"
+fetch.github = "scipopt/MIP-DD"
+
 [mumps-harness]
 src.github_tag = "coin-or-tools/ThirdParty-Mumps"
 fetch.github = "coin-or-tools/ThirdParty-Mumps"

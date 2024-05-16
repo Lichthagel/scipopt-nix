@@ -8,7 +8,7 @@ Nix flake and expressions for tools from the SCIP Optimization Suite.
 
 ## Packages
 
-The following packages are provided: scip, gcg, soplex, papilo, zimpl, pysoplex, pyscipopt, pygcgopt, scippp, mumps, ipopt-mumps, ug.
+The following packages are provided: scip, gcg, soplex, papilo, zimpl, pysoplex, pyscipopt, pygcgopt, scippp, mumps, ipopt-mumps, ug, mip-dd.
 
 ## Usage
 
