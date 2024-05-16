@@ -36,6 +36,8 @@ in
       mumps
     ];
 
+    outputs = ["out" "dev" "doc"];
+
     enableParallelBuilding = true;
 
     meta = {
