@@ -50,6 +50,8 @@ in
     pname = "mumps";
     inherit (mumps-src) version;
 
+    outputs = ["out" "dev"];
+
     unpackPhase = ''
       runHook preUnpack
 
