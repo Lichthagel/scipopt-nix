@@ -25,31 +25,11 @@
   in {
     templates = import ./templates;
 
-    packages = eachSystems (
-      import ./packages
-    );
+    packages = eachSystems (import ./packages);
 
-    devShells = eachSystems (
-      {
-        system,
-        pkgs,
-        ...
-      }: {
-        default = pkgs.mkShell {
-          packages = with pkgs; [
-            self.formatter.${system}
-            just
-            nvfetcher
-            deadnix
-            statix
-          ];
-        };
-      }
-    );
+    devShells = eachSystems ({pkgs, ...}: {default = pkgs.callPackage ./shell.nix {};});
 
-    formatter = eachSystems (
-      {pkgs, ...}: pkgs.alejandra
-    );
+    formatter = eachSystems ({pkgs, ...}: pkgs.alejandra);
 
     checks = eachSystems (perSystemInputs: import ./checks ({inherit self nixpkgs;} // perSystemInputs));
   };
