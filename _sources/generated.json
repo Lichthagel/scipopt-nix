@@ -73,11 +73,11 @@
             "name": null,
             "owner": "coin-or-tools",
             "repo": "ThirdParty-Mumps",
-            "rev": "releases/3.0.6",
-            "sha256": "sha256-png6fGFlJfm8rPSCskFtSB5CeAPm/Xqd2cRhuWVX5U8=",
+            "rev": "releases/3.0.7",
+            "sha256": "sha256-4P/aR2oUKU5l3eTVs8twQHS3fyPDD7rkAcFc20ZzZHU=",
             "type": "github"
         },
-        "version": "releases/3.0.6"
+        "version": "releases/3.0.7"
     },
     "papilo": {
         "cargoLocks": null,

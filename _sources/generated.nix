@@ -38,13 +38,13 @@
   };
   mumps-harness = {
     pname = "mumps-harness";
-    version = "releases/3.0.6";
+    version = "releases/3.0.7";
     src = fetchFromGitHub {
       owner = "coin-or-tools";
       repo = "ThirdParty-Mumps";
-      rev = "releases/3.0.6";
+      rev = "releases/3.0.7";
       fetchSubmodules = false;
-      sha256 = "sha256-png6fGFlJfm8rPSCskFtSB5CeAPm/Xqd2cRhuWVX5U8=";
+      sha256 = "sha256-4P/aR2oUKU5l3eTVs8twQHS3fyPDD7rkAcFc20ZzZHU=";
     };
   };
   papilo = {

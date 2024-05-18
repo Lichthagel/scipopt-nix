@@ -17,7 +17,7 @@
 
   mumps-src = pkgs.stdenvNoCC.mkDerivation {
     pname = "mumps-source";
-    version = "5.7.0";
+    version = "5.7.1";
 
     inherit (mumps-harness-src) src;
 
@@ -42,7 +42,7 @@
     '';
 
     outputHashMode = "recursive";
-    outputHash = "sha256-A0y9xRna2Y7sxK1Mopkgx/qavmERSMblbzTNXYv0TlA=";
+    outputHash = "sha256-uh6+HPE+2tvbEIL7Nr7AJS2QjoiHJMGqwLmk2uCDMG8=";
     outputHashAlgo = "sha256";
   };
 in
