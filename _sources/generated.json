@@ -193,11 +193,11 @@
             "name": null,
             "owner": "scipopt",
             "repo": "SCIPpp",
-            "rev": "1.1.0",
-            "sha256": "sha256-3BsFUpPYMxVhqpaBfqtt/TJnqeRM94BLsMUdoA2Vk5E=",
+            "rev": "1.2.0",
+            "sha256": "sha256-RbxIgATECLJCopShm98+ogfFoCv2yWH1/1QcZyo9GKo=",
             "type": "github"
         },
-        "version": "1.1.0"
+        "version": "1.2.0"
     },
     "soplex": {
         "cargoLocks": null,

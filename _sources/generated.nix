@@ -108,13 +108,13 @@
   };
   scippp = {
     pname = "scippp";
-    version = "1.1.0";
+    version = "1.2.0";
     src = fetchFromGitHub {
       owner = "scipopt";
       repo = "SCIPpp";
-      rev = "1.1.0";
+      rev = "1.2.0";
       fetchSubmodules = false;
-      sha256 = "sha256-3BsFUpPYMxVhqpaBfqtt/TJnqeRM94BLsMUdoA2Vk5E=";
+      sha256 = "sha256-RbxIgATECLJCopShm98+ogfFoCv2yWH1/1QcZyo9GKo=";
     };
   };
   soplex = {
