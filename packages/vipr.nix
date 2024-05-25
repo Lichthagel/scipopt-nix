@@ -26,7 +26,7 @@ in
       boost
       gmp
       soplex
-      tbb_2021_8
+      tbb_2021_11
       zlib
     ];
 

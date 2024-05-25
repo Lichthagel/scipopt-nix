@@ -34,7 +34,7 @@ in
     ];
 
     propagatedBuildInputs = with pkgs; [
-      tbb_2021_8
+      tbb_2021_11
     ];
 
     outputs = [

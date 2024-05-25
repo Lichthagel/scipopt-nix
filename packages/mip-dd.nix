@@ -34,7 +34,7 @@ in
 
     buildInputs = with pkgs; [
       boost
-      tbb_2021_8
+      tbb_2021_11
       scip
     ];
 
