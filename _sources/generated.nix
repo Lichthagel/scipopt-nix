@@ -100,10 +100,10 @@
       owner = "scipopt";
       repo = "scip";
       rev = "v910";
-      fetchSubmodules = false;
+      fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = true;
-      sha256 = "sha256-yEtr7NbWGvq3JWZ/PmEiL/p2tm9vSqhFjb4QStrDKUo=";
+      sha256 = "sha256-DDBPG1evnzbon/ESXP22x4HZSKL/Zr27N1xYIa0odrs=";
     };
   };
   scippp = {

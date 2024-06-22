@@ -168,13 +168,13 @@
         "pinned": false,
         "src": {
             "deepClone": false,
-            "fetchSubmodules": false,
+            "fetchSubmodules": true,
             "leaveDotGit": true,
             "name": null,
             "owner": "scipopt",
             "repo": "scip",
             "rev": "v910",
-            "sha256": "sha256-yEtr7NbWGvq3JWZ/PmEiL/p2tm9vSqhFjb4QStrDKUo=",
+            "sha256": "sha256-DDBPG1evnzbon/ESXP22x4HZSKL/Zr27N1xYIa0odrs=",
             "type": "github"
         },
         "version": "v910"
