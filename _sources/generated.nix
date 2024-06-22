@@ -119,15 +119,15 @@
   };
   soplex = {
     pname = "soplex";
-    version = "release-701";
+    version = "release-710";
     src = fetchFromGitHub {
       owner = "scipopt";
       repo = "soplex";
-      rev = "release-701";
+      rev = "release-710";
       fetchSubmodules = true;
       deepClone = false;
       leaveDotGit = true;
-      sha256 = "sha256-DSkIm1yD0z7ZcDFdugRMflxzMlm0EbyKW7ku+rnwmWs=";
+      sha256 = "sha256-ekp6eWf4W5B6z1lp3CDqToWmFMZZAMpLzstZ62CC5j0=";
     };
   };
   vipr = {
