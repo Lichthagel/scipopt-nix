@@ -132,14 +132,14 @@
   };
   vipr = {
     pname = "vipr";
-    version = "65fda95f4412c1395bfd65ce706f84103d4afe54";
+    version = "1ce995609c7b5d382ca47b5e3bf9894ad52296e0";
     src = fetchFromGitHub {
       owner = "scipopt";
       repo = "vipr";
-      rev = "65fda95f4412c1395bfd65ce706f84103d4afe54";
+      rev = "1ce995609c7b5d382ca47b5e3bf9894ad52296e0";
       fetchSubmodules = false;
-      sha256 = "sha256-glbEBfj17bolh9YrjrAkWRo5JMJbu7ph5R+oRDzjdgA=";
+      sha256 = "sha256-7Cu9Rw5rr6wv1Ul+sSSXt+iIJ8X/FkoMKf5j4D9Zo7w=";
     };
-    date = "2024-05-07";
+    date = "2024-06-06";
   };
 }
