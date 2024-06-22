@@ -3,15 +3,15 @@
 {
   gcg = {
     pname = "gcg";
-    version = "v360";
+    version = "v362";
     src = fetchFromGitHub {
       owner = "scipopt";
       repo = "gcg";
-      rev = "v360";
+      rev = "v362";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = true;
-      sha256 = "sha256-MRgsmP9LuTpS/FEPBNJSrIbYlUGh8EOEcbbl0MVEiRA=";
+      sha256 = "sha256-+/ZlCJRvXvNjCjhrB1Gi01D5m4LLTe48hQho1Wm4u7Y=";
     };
   };
   ipopt = {

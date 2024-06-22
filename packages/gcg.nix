@@ -32,16 +32,10 @@ in
 
     buildInputs =
       (with pkgs; [
+        bliss
         cliquer
         gmp
         gsl
-        (bliss.overrideAttrs (oldAttrs: {
-          installPhase =
-            oldAttrs.installPhase
-            + ''
-              mv $out/lib/libbliss.a $out/lib/liblibbliss.a
-            '';
-        }))
       ])
       ++ [scip];
 
