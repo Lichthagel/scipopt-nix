@@ -51,3 +51,7 @@ git.leaveDotGit = true
 [vipr]
 src.git = "https://github.com/scipopt/vipr.git"
 fetch.github = "scipopt/vipr"
+
+[zimpl]
+src.git = "https://github.com/scipopt/zimpl.git"
+fetch.github = "scipopt/zimpl"

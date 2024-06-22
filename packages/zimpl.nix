@@ -1,41 +1,47 @@
 {
   pkgs ? import <nixpkgs> {},
   lib ? import <nixpkgs/lib> {},
-  scipoptsuite-src ? pkgs.callPackage ./scipoptsuite-src.nix {},
   ...
-}:
-pkgs.stdenv.mkDerivation {
-  pname = "zimpl";
-  version = "3.6.1";
+}: let
+  zimpl-src =
+    (import ../_sources/generated.nix {
+      inherit
+        (pkgs)
+        fetchgit
+        fetchurl
+        fetchFromGitHub
+        dockerTools
+        ;
+    })
+    .zimpl;
+in
+  pkgs.stdenv.mkDerivation {
+    pname = "zimpl";
 
-  # Not publicly available apart from the SCIP Optimization Suite
-  src = assert (
-    lib.strings.versionAtLeast scipoptsuite-src.version "9.1.0"
-    && lib.strings.versionOlder scipoptsuite-src.version "9.1.1"
-  ); "${scipoptsuite-src}/zimpl"; # check for scipopt suite version that ships correct zimpl version
+    inherit (zimpl-src) src version;
 
-  nativeBuildInputs = with pkgs; [
-    cmake
-    bison
-    flex
-  ];
+    nativeBuildInputs = with pkgs; [
+      cmake
+      bison
+      flex
+    ];
 
-  buildInputs = with pkgs; [
-    gmp
-    zlib
-  ];
+    buildInputs = with pkgs; [
+      gmp
+      zlib
+    ];
 
-  outputs = [
-    "bin"
-    "dev"
-    "out"
-  ];
+    outputs = [
+      "bin"
+      "dev"
+      "out"
+    ];
 
-  patches = [../patches/zimpl_dirs.patch];
+    patches = [../patches/zimpl_dirs.patch];
 
-  meta = {
-    description = "Mathematical modeling language for linear or (mixed-)integer programs";
-    homepage = "https://zimpl.zib.de/";
-    license = lib.licenses.lgpl3;
-  };
-}
+    meta = {
+      description = "Mathematical modeling language for linear or (mixed-)integer programs";
+      homepage = "https://zimpl.zib.de/";
+      license = lib.licenses.lgpl3;
+    };
+  }

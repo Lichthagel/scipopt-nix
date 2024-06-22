@@ -238,5 +238,25 @@
             "type": "github"
         },
         "version": "1ce995609c7b5d382ca47b5e3bf9894ad52296e0"
+    },
+    "zimpl": {
+        "cargoLocks": null,
+        "date": "2024-06-21",
+        "extract": null,
+        "name": "zimpl",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "scipopt",
+            "repo": "zimpl",
+            "rev": "b3aa64ad38c67b4c73f1c18600a217563109b2d2",
+            "sha256": "sha256-v3+xs0F4FKk1mq0hFSSxQdwgT4z+0t3TE8biD871xiU=",
+            "type": "github"
+        },
+        "version": "b3aa64ad38c67b4c73f1c18600a217563109b2d2"
     }
 }
