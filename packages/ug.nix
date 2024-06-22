@@ -7,12 +7,12 @@
 }:
 pkgs.stdenv.mkDerivation {
   pname = "ug";
-  version = "1.0.0";
+  version = "1.0.0-beta-5";
 
   # Not publicly available apart from the SCIP Optimization Suite
   src = assert (
-    lib.strings.versionAtLeast scipoptsuite-src.version "9.0.1"
-    && lib.strings.versionOlder scipoptsuite-src.version "9.0.2"
+    lib.strings.versionAtLeast scipoptsuite-src.version "9.1.0"
+    && lib.strings.versionOlder scipoptsuite-src.version "9.1.1"
   ); "${scipoptsuite-src}/ug"; # check for scipopt suite version that ships correct zimpl version
 
   nativeBuildInputs = with pkgs; [
