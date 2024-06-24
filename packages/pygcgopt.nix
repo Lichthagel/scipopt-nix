@@ -7,6 +7,8 @@
   fetchFromGitHub,
   dockerTools,
   cython,
+  setuptools,
+  ortools,
   pyscipopt ? callPackage ./pyscipopt.nix {},
   scip ? callPackage ./scip.nix {},
   gcg ? callPackage ./gcg.nix {},
@@ -32,7 +34,13 @@ in
     #   in
     #   builtins.head matches;
 
-    nativeBuildInputs = [cython];
+    pyproject = true;
+
+    nativeBuildInputs = [
+      cython
+      setuptools
+      ortools # used in tests
+    ];
 
     propagatedBuildInputs = [pyscipopt];
 

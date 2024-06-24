@@ -60,15 +60,15 @@
   };
   pygcgopt = {
     pname = "pygcgopt";
-    version = "6e2e51aabd11d3cb4ebdf79992c3618758801016";
+    version = "719d4675890dedee75dfeed755792c1c6701e39d";
     src = fetchFromGitHub {
       owner = "scipopt";
       repo = "PyGCGOpt";
-      rev = "6e2e51aabd11d3cb4ebdf79992c3618758801016";
+      rev = "719d4675890dedee75dfeed755792c1c6701e39d";
       fetchSubmodules = false;
-      sha256 = "sha256-1nf5ctEBDR9ZFEOPcHFa+9qnytWkiydZaP8RZhG2XXY=";
+      sha256 = "sha256-RtSj3u1ETq1udBGwh2/p6A14Y3cPcmoAseion6xkixA=";
     };
-    date = "2024-03-08";
+    date = "2024-06-23";
   };
   pyscipopt = {
     pname = "pyscipopt";
