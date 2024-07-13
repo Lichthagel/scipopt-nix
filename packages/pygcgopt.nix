@@ -53,6 +53,10 @@ in
     GCGINCLUDEDIR = "${gcg.dev}/include";
     GCGLIBDIR = "${gcg.out}/lib";
 
+    postInstall = ''
+      rm -r $out/lib/python3.11/site-packages/pyscipopt
+    '';
+
     meta = {
       description = "Python interface for the GCG Solver.";
       homepage = "https://scipopt.github.io/PyGCGOpt/";
