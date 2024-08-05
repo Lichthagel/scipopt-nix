@@ -18,8 +18,8 @@
     })
     .gcg;
 
-  hmetis = (
-    pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
+  hmetis = pkgs.stdenvNoCC.mkDerivation (
+    finalAttrs: {
       pname = "hmetis";
       version = "2.0pre1";
 
@@ -48,7 +48,7 @@
           "x86_64-linux"
         ];
       };
-    })
+    }
   );
 in
   pkgs.stdenv.mkDerivation {
