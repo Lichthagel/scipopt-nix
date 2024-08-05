@@ -89,6 +89,11 @@ in
       for file in ${builtins.concatStringsSep " " debugFiles}; do
         sed -i '1s/^/#define SCIP_DEBUG\n/' $file
       done
+
+      # Fix zsh calls
+      substituteInPlace \
+        src/gcg/dec_hcgpartition.cpp src/gcg/dec_hrgpartition.cpp src/gcg/dec_hrcgpartition.cpp \
+        --replace-fail "zsh -c" "${pkgs.zsh}/bin/zsh -c"
     '';
 
     enableParallelBuilding = true;
