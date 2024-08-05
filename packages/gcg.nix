@@ -20,7 +20,7 @@
 
   hmetis = pkgs.stdenvNoCC.mkDerivation (
     finalAttrs: {
-      pname = "hmetis";
+      inherit (pkgs.hmetis) pname meta;
       version = "2.0pre1";
 
       src = pkgs.fetchurl {
@@ -37,17 +37,6 @@
         mkdir -p $out/bin
         install -Dm755 ${paths.${pkgs.system}}/hmetis${finalAttrs.version} $out/bin/hmetis
       '';
-
-      meta = with lib; {
-        description = "hMETIS is a set of programs for partitioning hypergraphs";
-        homepage = "http://glaros.dtc.umn.edu/gkhome/metis/hmetis/overview";
-        sourceProvenance = with sourceTypes; [binaryNativeCode];
-        license = licenses.unfree;
-        platforms = [
-          "i686-linux"
-          "x86_64-linux"
-        ];
-      };
     }
   );
 in
