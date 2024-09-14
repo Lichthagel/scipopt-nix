@@ -13,11 +13,11 @@
             "name": null,
             "owner": "scipopt",
             "repo": "gcg",
-            "rev": "v362",
-            "sha256": "sha256-+/ZlCJRvXvNjCjhrB1Gi01D5m4LLTe48hQho1Wm4u7Y=",
+            "rev": "v363",
+            "sha256": "sha256-ese9nR9mWorYBDxFcQGdk6LNIRM/FhuvGI3QyC6cQmM=",
             "type": "github"
         },
-        "version": "v362"
+        "version": "v363"
     },
     "ipopt": {
         "cargoLocks": null,
