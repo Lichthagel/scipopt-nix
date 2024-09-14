@@ -49,13 +49,13 @@
   };
   papilo = {
     pname = "papilo";
-    version = "v2.3.0";
+    version = "v2.3.1";
     src = fetchFromGitHub {
       owner = "scipopt";
       repo = "papilo";
-      rev = "v2.3.0";
+      rev = "v2.3.1";
       fetchSubmodules = false;
-      sha256 = "sha256-rB8kRyBxd+zn3XFueTQoN16jbFpXMvneqatQm8Hh2Hg=";
+      sha256 = "sha256-N7ToON8Jx9zq4TKYVElxTn1aNDd5WiaHXPPVxF1CQpM=";
     };
   };
   pygcgopt = {
