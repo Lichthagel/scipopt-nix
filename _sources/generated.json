@@ -213,11 +213,11 @@
             "name": null,
             "owner": "scipopt",
             "repo": "soplex",
-            "rev": "release-710",
-            "sha256": "sha256-ekp6eWf4W5B6z1lp3CDqToWmFMZZAMpLzstZ62CC5j0=",
+            "rev": "release-711",
+            "sha256": "sha256-ZACxKQYlGmii3y2YwL/avqaw+b54uh3y0We8NDkqMC4=",
             "type": "github"
         },
-        "version": "release-710"
+        "version": "release-711"
     },
     "vipr": {
         "cargoLocks": null,
