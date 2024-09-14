@@ -3,6 +3,7 @@
   pkgs ? import <nixpkgs> {},
   scip ? pkgs.callPackage ./scip.nix {},
   debugFiles ? [], # add `#define SCIP_DEBUG` to these files (e.g. ["src/gcg/cons_decomp.cpp"])
+  withHMetis ? false,
   ...
 }: let
   gcg-src =
@@ -16,6 +17,28 @@
         ;
     })
     .gcg;
+
+  hmetis = pkgs.stdenvNoCC.mkDerivation (
+    finalAttrs: {
+      inherit (pkgs.hmetis) pname meta;
+      version = "2.0pre1";
+
+      src = pkgs.fetchurl {
+        url = "https://or.rwth-aachen.de/hmetis/hmetis-${finalAttrs.version}.tar.gz";
+        sha256 = "sha256-9HlCWaKHxuhz6vsEkT0VK8VPcTZJv/JxAGStljJCjCI=";
+      };
+
+      installPhase = let
+        paths = {
+          "x86_64-linux" = "Linux-x86_64";
+          "i686-linux" = "Linux-i686";
+        };
+      in ''
+        mkdir -p $out/bin
+        install -Dm755 ${paths.${pkgs.system}}/hmetis${finalAttrs.version} $out/bin/hmetis
+      '';
+    }
+  );
 in
   pkgs.stdenv.mkDerivation {
     inherit (gcg-src) pname src;
@@ -31,13 +54,14 @@ in
     ];
 
     buildInputs =
-      (with pkgs; [
-        bliss
-        cliquer
-        gmp
-        gsl
-      ])
-      ++ [scip];
+      [
+        pkgs.bliss
+        pkgs.cliquer
+        pkgs.gmp
+        pkgs.gsl
+        scip
+      ]
+      ++ (lib.optional withHMetis hmetis);
 
     outputs = [
       "bin"
@@ -54,10 +78,20 @@ in
       for file in ${builtins.concatStringsSep " " debugFiles}; do
         sed -i '1s/^/#define SCIP_DEBUG\n/' $file
       done
+
+      # Fix zsh calls
+      substituteInPlace \
+        src/gcg/dec_hcgpartition.cpp src/gcg/dec_hrgpartition.cpp src/gcg/dec_hrcgpartition.cpp \
+        --replace-fail "zsh -c" "${pkgs.zsh}/bin/zsh -c"
     '';
 
     enableParallelBuilding = true;
     doCheck = true;
+
+    cmakeFlags = lib.optional withHMetis [
+      "-DHMETIS=ON"
+      "-DHMETIS_EXECUTABLE=${hmetis}/bin/hmetis"
+    ];
 
     meta = {
       description = "Branch-and-Price & Column Generation for Everyone";
