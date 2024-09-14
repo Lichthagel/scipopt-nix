@@ -168,16 +168,16 @@
         "pinned": false,
         "src": {
             "deepClone": false,
-            "fetchSubmodules": true,
+            "fetchSubmodules": false,
             "leaveDotGit": true,
             "name": null,
             "owner": "scipopt",
             "repo": "scip",
-            "rev": "v910",
-            "sha256": "sha256-DDBPG1evnzbon/ESXP22x4HZSKL/Zr27N1xYIa0odrs=",
+            "rev": "v911",
+            "sha256": "sha256-0iLoQpsPyPCsygStU6ueT3SZb9+XlwQuC0MUuFGu0w4=",
             "type": "github"
         },
-        "version": "v910"
+        "version": "v911"
     },
     "scippp": {
         "cargoLocks": null,

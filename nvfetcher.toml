@@ -36,7 +36,7 @@ fetch.github = "scipopt/PySoPlex"
 [scip]
 src.github = "scipopt/scip"
 fetch.github = "scipopt/scip"
-git.fetchSubmodules = true # nvfetcher produces wrong hash otherwise (even though we dont need the submodules)
+# git.fetchSubmodules = true # nvfetcher produces wrong hash otherwise (even though we dont need the submodules)
 git.leaveDotGit = true
 
 [scippp]

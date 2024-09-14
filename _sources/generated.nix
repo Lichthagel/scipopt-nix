@@ -95,15 +95,15 @@
   };
   scip = {
     pname = "scip";
-    version = "v910";
+    version = "v911";
     src = fetchFromGitHub {
       owner = "scipopt";
       repo = "scip";
-      rev = "v910";
-      fetchSubmodules = true;
+      rev = "v911";
+      fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = true;
-      sha256 = "sha256-DDBPG1evnzbon/ESXP22x4HZSKL/Zr27N1xYIa0odrs=";
+      sha256 = "sha256-0iLoQpsPyPCsygStU6ueT3SZb9+XlwQuC0MUuFGu0w4=";
     };
   };
   scippp = {
