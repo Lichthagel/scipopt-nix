@@ -144,14 +144,13 @@
   };
   zimpl = {
     pname = "zimpl";
-    version = "694670414e6b8bb6e284be95d1fd2f0225b0528a";
+    version = "v362";
     src = fetchFromGitHub {
       owner = "scipopt";
       repo = "zimpl";
-      rev = "694670414e6b8bb6e284be95d1fd2f0225b0528a";
+      rev = "v362";
       fetchSubmodules = false;
-      sha256 = "sha256-IQEuRxp1iFXmJ8sQo6WdaAwTw/xj8jpLlAOo7nacsto=";
+      sha256 = "sha256-juqAwzqBArsFXmz7L7RQaE78EhQdP5P51wQFlCoo7/o=";
     };
-    date = "2024-08-22";
   };
 }

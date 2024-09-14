@@ -241,7 +241,7 @@
     },
     "zimpl": {
         "cargoLocks": null,
-        "date": "2024-08-22",
+        "date": null,
         "extract": null,
         "name": "zimpl",
         "passthru": null,
@@ -253,10 +253,10 @@
             "name": null,
             "owner": "scipopt",
             "repo": "zimpl",
-            "rev": "694670414e6b8bb6e284be95d1fd2f0225b0528a",
-            "sha256": "sha256-IQEuRxp1iFXmJ8sQo6WdaAwTw/xj8jpLlAOo7nacsto=",
+            "rev": "v362",
+            "sha256": "sha256-juqAwzqBArsFXmz7L7RQaE78EhQdP5P51wQFlCoo7/o=",
             "type": "github"
         },
-        "version": "694670414e6b8bb6e284be95d1fd2f0225b0528a"
+        "version": "v362"
     }
 }

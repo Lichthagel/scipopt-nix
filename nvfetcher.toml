@@ -54,5 +54,5 @@ src.git = "https://github.com/scipopt/vipr.git"
 fetch.github = "scipopt/vipr"
 
 [zimpl]
-src.git = "https://github.com/scipopt/zimpl.git"
+src.github_tag = "scipopt/zimpl"
 fetch.github = "scipopt/zimpl"
